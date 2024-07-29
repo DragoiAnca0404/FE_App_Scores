@@ -1,0 +1,7 @@
+{
+  "name": "FE_App_Scores",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
