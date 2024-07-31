@@ -1,0 +1,27 @@
+.center-button {
+    display: block;
+    margin: 0 auto;
+    padding: 2%;
+  }
+
+  ion-button {
+    --background: #ebff5d; /* Culoare pentru buton */
+    --color: #000000; /* Culoare text buton */
+    --border-radius: 30px;
+    --display: block;
+    --margin: 0 auto;
+  }
+
+  .title{
+    font-weight: bold;
+  }
+
+  ion-row.ion-justify-content-center.padding-space.md.hydrated{
+    padding: 100px;
+  }
+
+  .ion-txt-center{
+    font-family: 'Poppins-ExtraLight';font-size: 13px;
+    padding: 20px;
+    opacity: 0.5;
+  }

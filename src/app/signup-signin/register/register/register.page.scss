@@ -1,0 +1,50 @@
+ion-header {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+ion-toolbar {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+ion-title {
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+
+
+.center-button {
+  display: block;
+  margin: 0 auto;
+  padding: 2%;
+}
+
+
+
+a{
+  color: #ebff5d;
+  opacity: 0.7;
+}
+
+ion-title{
+  font-weight: bold;
+}
+
+.presentation-register{
+  font-family: 'Poppins-ExtraLight';font-size: 13px;
+  padding: 20px;
+  opacity: 0.5;
+}
+
+ion-note{
+  font-family: 'Poppins-ExtraLight';font-size: 13px;
+  padding: 20px;
+
+}

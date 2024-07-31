@@ -1,2 +1,45 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+ion-content {
+    --background:#2B293E;
+}
+
+ion-item{
+    --background: transparent;
+     --lines:"none";
+  }
+
+  ion-content {
+    --padding-top: 100px;
+  }
+
+  .circle{
+    background-color: #2B293E;
+    
+}
+
+  .circle::part(image) {
+    width: 50%; 
+ }
+
+
+ ion-label {
+  --color: #000000; /* Culoare pentru text */
+}
+
+ion-input {
+  --background: #fff; /* Culoare pentru input */
+  --color: #000; /* Culoare text pentru input */
+  --border-radius: 30px;
+  --padding-start: 12px;
+}
+
+ion-button {
+  --background: #ebff5d; /* Culoare pentru buton */
+  --color: #000000; /* Culoare text buton */
+  --border-radius: 30px;
+  --display: block;
+  --margin: 0 auto;
+}
+
+  

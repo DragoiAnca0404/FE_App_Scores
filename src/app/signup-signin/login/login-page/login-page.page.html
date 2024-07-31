@@ -1,0 +1,42 @@
+<ion-img class="circle" src="assets/circle/Group.png"></ion-img>
+
+<ion-content>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-img src="assets/login/presentation-illustration.png" style="width: 300px; height: 300px;"alt="Register Icon"></ion-img>
+  </ion-row>
+
+
+  
+  <ion-row class="ion-justify-content-center ion-margin-top">
+    <ion-item class="ion-no-padding" lines="none">
+      <ion-img src="assets/login/icon-login.png" alt="Login Icon" style="width: 20px; height: 20px;"></ion-img>
+      <ion-title>Login</ion-title>
+    </ion-item>
+  </ion-row>
+
+
+
+
+
+
+
+    <form (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-input type="email" [(ngModel)]="username" name="username" placeholder="Introdu username" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" [(ngModel)]="password" placeholder="Introdu parola" name="password" required>
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
+      </ion-item>
+
+
+      <ion-button class="center-button" type="submit">Autentificare</ion-button>
+    </form>
+  
+    <ion-text class="ion-text-center ion-margin-top">
+      <p>Nu ai deja cont? <a routerLink="/register">Creaza-ti cont!</a></p>
+    </ion-text>
+
+</ion-content>

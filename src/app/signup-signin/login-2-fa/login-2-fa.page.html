@@ -1,0 +1,42 @@
+<ion-img class="circle" src="assets/circle/Group.png"></ion-img>
+
+
+<ion-content>
+
+  <ion-row class="ion-justify-content-center ion-margin-top">
+    <ion-text class="title">Înregistrare efectuată cu succes.</ion-text>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center padding-space">
+
+  <ion-img src="assets/register/check-circle.png" alt="Register Icon" style="width: 200px; height: 200px;"></ion-img>
+  </ion-row>
+  <ion-row class="ion-justify-content-center ion-margin-top">
+
+  <ion-text class="ion-txt-center">Introdu codul de verificare!</ion-text>
+
+</ion-row>
+
+<form (ngSubmit)="onSubmit()">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="2" *ngFor="let digit of digits; let i = index">
+        <ion-item>
+          <ion-input
+            type="tel"
+            maxlength="1"
+            [(ngModel)]="digits[i]"
+            [attr.id]="'digit-' + i"
+            (keyup)="onKeyUp($event, i)"
+            (keydown)="onKeyDown($event, i)"
+            required
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button class="center-button" type="submit">Verificare</ion-button>
+</form>
+
+</ion-content>
+
