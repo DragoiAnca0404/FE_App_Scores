@@ -1,42 +1,38 @@
-<ion-img class="circle" src="assets/circle/Group.png"></ion-img>
-
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login 2FA</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input formControlName="username" type="text"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid">
+      <p *ngIf="loginForm.get('username')?.hasError('required')">Username is required.</p>
+    </ion-item>
 
-  <ion-row class="ion-justify-content-center ion-margin-top">
-    <ion-text class="title">Înregistrare efectuată cu succes.</ion-text>
-  </ion-row>
+    <div formArrayName="code" class="code-input">
+      <ion-item *ngFor="let control of code.controls; let i = index">
+        <ion-input [formControlName]="i" type="text" maxlength="1" inputmode="numeric"></ion-input>
+      </ion-item>
+    </div>
+    <ion-item *ngIf="loginForm.get('code')?.invalid">
+      <p>Code is required and must be 6 digits.</p>
+    </ion-item>
 
-  <ion-row class="ion-justify-content-center padding-space">
+    <ion-button type="submit" [disabled]="loginForm.invalid">Login</ion-button>
 
-  <ion-img src="assets/register/check-circle.png" alt="Register Icon" style="width: 200px; height: 200px;"></ion-img>
-  </ion-row>
-  <ion-row class="ion-justify-content-center ion-margin-top">
-
-  <ion-text class="ion-txt-center">Introdu codul de verificare!</ion-text>
-
-</ion-row>
-
-<form (ngSubmit)="onSubmit()">
-  <ion-grid>
-    <ion-row class="ion-justify-content-center">
-      <ion-col size="2" *ngFor="let digit of digits; let i = index">
-        <ion-item>
-          <ion-input
-            type="tel"
-            maxlength="1"
-            [(ngModel)]="digits[i]"
-            [attr.id]="'digit-' + i"
-            (keyup)="onKeyUp($event, i)"
-            (keydown)="onKeyDown($event, i)"
-            required
-          ></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-button class="center-button" type="submit">Verificare</ion-button>
-</form>
-
+    <ion-item *ngIf="errorMessage">
+      <ion-note color="danger">
+        {{ errorMessage }}
+      </ion-note>
+    </ion-item>
+  </form>
 </ion-content>
+
+
+
 

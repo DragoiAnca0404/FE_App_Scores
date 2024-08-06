@@ -1,0 +1,14 @@
+<div *ngIf="errorMessage; else employeeList">
+  <p>{{ errorMessage }}</p>
+</div>
+
+<ng-template #employeeList>
+  <h2>Lista Angajaților</h2>
+  <ul>
+    <li *ngFor="let employee of employees">
+      {{ employee }} <!-- Afișează numele angajaților -->
+    </li>
+  </ul>
+</ng-template>
+
+

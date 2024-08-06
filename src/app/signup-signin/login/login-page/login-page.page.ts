@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterServiceService } from '../../services/register-service.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login-page',
@@ -8,26 +11,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.page.scss'],
 })
 export class LoginPagePage implements OnInit {
-  username: any;
-  password: any;
+  loginForm: FormGroup = new FormGroup({}); // Inițializare
+  errorMessage: string = '';
 
-  constructor(private authService: RegisterServiceService, private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private authService: RegisterServiceService,
+    private navCtrl: NavController
+  ) { }
 
-  ngOnInit(  ) {
+  ngOnInit() {
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
   }
 
-
-
-
-  onSubmit() {
-    this.authService.login(this.username, this.password).subscribe(
-      response => {
-        console.log('Login successful', response);
-        this.router.navigate(['/login-2-fa']);
-      },
-      error => {
-        console.error('Login failed', error);
-      }
-    );
+  onLogin() {
+    if (this.loginForm.valid) {
+      const loginData = this.loginForm.value;
+      this.authService.login2(loginData).subscribe(
+        response => {
+          console.log('Login successful', response);
+          this.navCtrl.navigateForward('/login-2-fa');
+        },
+        error => {
+          console.error('Login failed', error);
+          this.errorMessage = 'Credențiale invalide. Vă rugăm să încercați din nou.';
+        }
+      );
+    }
   }
 }

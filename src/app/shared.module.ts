@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms'; // Importează ReactiveFor
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule // Adaugă ReactiveFormsModule
+    
   ],
   exports: [
     CommonModule,

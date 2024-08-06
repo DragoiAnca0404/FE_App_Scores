@@ -1,47 +1,47 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
+import * as jwt from 'jsonwebtoken';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterServiceService {
 
-  private apiUrl = 'https://localhost:44312/api'; // Înlocuiți cu URL-ul real al API-ului vostru
-  private apiUrlPost = 'https://localhost:44312/api/Authentication/login'; // Înlocuiți cu URL-ul real al API-ului vostru
+  private apiUrl = 'https://localhost:44312/api'; // URL-ul API-ului
+  private baseUrlLogin = 'https://localhost:44312/api/Authentication';
 
-//https://localhost:44312/api/Authentication/register?role=HR
   constructor(private http: HttpClient) { }
+
+
+  private UserRole    = new BehaviorSubject<any>(localStorage.getItem('role'));
+
+
+
+  getToken(): string | null {
+    return localStorage.getItem('authToken');
+  }
+
+  clearToken(): void {
+    localStorage.removeItem('authToken');
+  }
+
 
   registerUser(user: any, role: string): Observable<any> {
     const url = `${this.apiUrl}/Authentication/register?role=${role}`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post(url, user, { headers: headers });
+    return this.http.post(url, user, { headers: headers, withCredentials: true });
   }
 
-
-
-  //login
-
-  login(username: string, password: string): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-
-    const body = {
-      username: username,
-      password: password
-    };
-
-    return this.http.post<any>(this.apiUrlPost, body, { headers: headers });
+  login2(credentials: { username: string, password: string }): Observable<any> {
+    const url = `${this.baseUrlLogin}/login`;
+    return this.http.post(url, credentials, { withCredentials: true });
   }
 
-  login2FA(username: string, code: string): Observable<any> {
-    const params = new HttpParams()
-      .set('username', username)
-      .set('code', code);
-
-    return this.http.post(`${this.apiUrl}/Authentication/login-2FA`, { params });
+  login2FA(credentials: { username: string, code: string }): Observable<any> {
+    const url = `${this.baseUrlLogin}/login-2FA`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<any>(url, credentials, { headers: headers, withCredentials: true });
   }
 }
-

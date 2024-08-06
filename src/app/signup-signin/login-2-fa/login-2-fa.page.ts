@@ -1,63 +1,62 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterServiceService } from '../services/register-service.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login-2-fa',
   templateUrl: './login-2-fa.page.html',
   styleUrls: ['./login-2-fa.page.scss'],
 })
-export class Login2FAPage {
+export class Login2FAPage implements OnInit {
 
-  digits: string[] = ['', '', '', '', '', ''];
+  loginForm: FormGroup;
+  errorMessage: string = '';
 
-  constructor(    private authService: RegisterServiceService,  private router: Router  ) {}
-
-  onKeyUp(event: KeyboardEvent, index: number) {
-    const input = event.target as HTMLInputElement;
-    if (input.value.length === 1 && index < this.digits.length - 1) {
-      // Move to the next input field
-      const nextInput = document.getElementById(`digit-${index + 1}`) as HTMLInputElement;
-      if (nextInput) {
-        nextInput.focus();
-      }
-    }
+  constructor(
+    private fb: FormBuilder,
+    private authService: RegisterServiceService,
+    private navCtrl: NavController
+  ) {
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      code: this.fb.array(
+        Array(6).fill('').map(() => this.fb.control('', Validators.required))
+      )
+    });
   }
 
-  onKeyDown(event: KeyboardEvent, index: number) {
-    const input = event.target as HTMLInputElement;
-    if (event.key === 'Backspace' && index > 0 && input.value.length === 0) {
-      // Move to the previous input field if Backspace is pressed and the current field is empty
-      const previousInput = document.getElementById(`digit-${index - 1}`) as HTMLInputElement;
-      if (previousInput) {
-        previousInput.focus();
-      }
-    }
+  ngOnInit() {}
+
+  get code(): FormArray {
+    return this.loginForm.get('code') as FormArray;
   }
 
-
-  onSubmit() {
-    const code = this.digits.join('');
-    if (code.length === 6) {
-      this.authService.login2FA('Anca', code).subscribe(
+  onLogin() {
+    if (this.loginForm.valid) {
+      const loginData = this.loginForm.value;
+      const code = loginData.code.join(''); // Asigură-te că `code` este un string
+      const credentials = {
+        username: loginData.username,
+        code: code
+      };
+      this.authService.login2FA(credentials).subscribe(
         response => {
-          this.router.navigate(['/success-msg-register']);
+          console.log('Login 2FA successful', response);
+          const token = response.token;
+          localStorage.setItem('authToken', token);
+          this.navCtrl.navigateForward('/dummy');
         },
         error => {
-          // Gestionează eroarea
-          alert('Autentificare eșuată. Verifică codul și încearcă din nou.');
+          console.error('Login 2FA failed', error);
+          this.errorMessage = 'Credențiale invalide. Vă rugăm să încercați din nou.';
         }
       );
-    } else {
-      alert('Introdu toate cele 6 cifre.');
     }
   }
+
+
 }
-
-
-
-
-
-
 
 
