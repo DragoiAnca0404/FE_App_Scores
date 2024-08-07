@@ -32,6 +32,7 @@ export class LoginPagePage implements OnInit {
       const loginData = this.loginForm.value;
       this.authService.login2(loginData).subscribe(
         response => {
+          this.authService.setUsername(loginData.username); // Salvăm numele de utilizator
           console.log('Login successful', response);
           this.navCtrl.navigateForward('/login-2-fa');
         },

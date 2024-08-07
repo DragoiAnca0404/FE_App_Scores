@@ -11,12 +11,21 @@ export class RegisterServiceService {
 
   private apiUrl = 'https://localhost:44312/api'; // URL-ul API-ului
   private baseUrlLogin = 'https://localhost:44312/api/Authentication';
+  private username: any;
 
   constructor(private http: HttpClient) { }
 
 
   private UserRole    = new BehaviorSubject<any>(localStorage.getItem('role'));
 
+
+  setUsername(username: string) {
+    this.username = username;
+  }
+
+  getUsername(): string {
+    return this.username;
+  }
 
 
   getToken(): string | null {

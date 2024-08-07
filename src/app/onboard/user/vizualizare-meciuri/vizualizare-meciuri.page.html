@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalii Meci: {{ denumireMeci }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col><strong>Echipa</strong></ion-col>
+      <ion-col><strong>Scorul</strong></ion-col>
+      <ion-col><strong>Data</strong></ion-col>
+      <ion-col><strong>Activitate</strong></ion-col>
+    </ion-row>
+    <ion-row *ngFor="let detaliu of detaliiMeci">
+      <ion-col>{{ detaliu.echipa }}</ion-col>
+      <ion-col>{{ detaliu.scorul }}</ion-col>
+      <ion-col>{{ detaliu.data | date }}</ion-col>
+      <ion-col>{{ detaliu.activitate }}</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

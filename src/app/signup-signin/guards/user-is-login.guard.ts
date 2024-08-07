@@ -11,7 +11,7 @@ export const userIsLoginGuard: CanActivateFn = (
 
   const token = localStorage.getItem('authToken');
   if (token) {
-    router.navigate(['/dummy']);
+    router.navigate(['/meciuri']);
     return false;
   } else {
     return true;

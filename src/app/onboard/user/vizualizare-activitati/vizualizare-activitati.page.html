@@ -1,0 +1,26 @@
+<ion-img class="circle" src="assets/circle/Group.png"></ion-img>
+
+<ion-content>
+  <!-- Imaginea cerc -->
+  <!-- Container pentru titlu și butonul de adăugare -->
+  <div class="header-container">
+    <ion-title class="page-title">Activitatii</ion-title>
+  </div>
+
+  <!-- Segment pentru schimbarea vizualizării -->
+  <ion-segment [(ngModel)]="viewMode">
+    <ion-segment-button value="list">
+      Listă
+    </ion-segment-button>
+    <ion-segment-button value="grid">
+      Grilă
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Conținutul listei/gridului -->
+  <div [ngClass]="{'list-view': viewMode === 'list', 'grid-view': viewMode === 'grid'}">
+    <ion-button *ngFor="let activitate of activitati" class="meci-button" shape="round" (click)="onMeciClick(activitate.titlu)">
+      {{ activitate.titlu }}
+    </ion-button>
+  </div>
+</ion-content>

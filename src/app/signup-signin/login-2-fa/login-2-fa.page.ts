@@ -38,7 +38,7 @@ export class Login2FAPage implements OnInit {
       const loginData = this.loginForm.value;
       const code = loginData.code.join(''); // Asigură-te că `code` este un string
       const credentials = {
-        username: loginData.username,
+        username:  this.authService.getUsername(),
         code: code
       };
       this.authService.login2FA(credentials).subscribe(
@@ -46,7 +46,7 @@ export class Login2FAPage implements OnInit {
           console.log('Login 2FA successful', response);
           const token = response.token;
           localStorage.setItem('authToken', token);
-          this.navCtrl.navigateForward('/dummy');
+          this.navCtrl.navigateForward('/vizualizare-activitati');
         },
         error => {
           console.error('Login 2FA failed', error);
