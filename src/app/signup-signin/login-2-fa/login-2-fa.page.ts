@@ -3,6 +3,7 @@ import { RegisterServiceService } from '../services/register-service.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-login-2-fa',
@@ -13,11 +14,14 @@ export class Login2FAPage implements OnInit {
 
   loginForm: FormGroup;
   errorMessage: string = '';
+  private role: string = '';
+
 
   constructor(
     private fb: FormBuilder,
     private authService: RegisterServiceService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private jwtHelper: JwtHelperService
   ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -46,6 +50,7 @@ export class Login2FAPage implements OnInit {
           console.log('Login 2FA successful', response);
           const token = response.token;
           localStorage.setItem('authToken', token);
+          this.decodeToken(token);
           this.navCtrl.navigateForward('/vizualizare-activitati');
         },
         error => {
@@ -54,6 +59,11 @@ export class Login2FAPage implements OnInit {
         }
       );
     }
+  }
+
+  private decodeToken(token: string): void {
+    const decodedToken = this.jwtHelper.decodeToken(token);
+    this.role = decodedToken.role;  // Presupunem că rolul este în token
   }
 
 

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -22,4 +22,21 @@ export class MeciuriService {
     const url = `${this.apiUrl}/${denumireMeci}`;
     return this.http.get<any>(url);
   }
+
+  getMeciuriByActivitate(denumireSport: string): Observable<any[]> {
+    const url = `${this.apiUrl}/activitate`;
+    const params = new HttpParams().set('DenumireActivitate', denumireSport);
+  
+    return this.http.get<any[]>(url, { params });
+  }
+
+
+  getScoruri(denumireMeci: string, data: string): Observable<any[]> {
+    const params = new HttpParams()
+      .set('DenumireMeci', denumireMeci)
+      .set('data', data);
+
+    return this.http.get<any[]>(`${this.apiUrl}/scoruri`, { params });
+  }
+  
 }

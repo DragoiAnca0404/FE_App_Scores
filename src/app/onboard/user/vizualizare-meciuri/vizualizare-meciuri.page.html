@@ -1,22 +1,18 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Detalii Meci: {{ denumireMeci }}</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col><strong>Echipa</strong></ion-col>
-      <ion-col><strong>Scorul</strong></ion-col>
-      <ion-col><strong>Data</strong></ion-col>
-      <ion-col><strong>Activitate</strong></ion-col>
-    </ion-row>
-    <ion-row *ngFor="let detaliu of detaliiMeci">
-      <ion-col>{{ detaliu.echipa }}</ion-col>
-      <ion-col>{{ detaliu.scorul }}</ion-col>
-      <ion-col>{{ detaliu.data | date }}</ion-col>
-      <ion-col>{{ detaliu.activitate }}</ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content>
+
+
+  <div class="header-container">
+    <ion-title class="page-title">Meciuri pentru {{ denumireSport }}</ion-title>
+  </div>
+
+
+  <ion-list>
+    <ion-item *ngFor="let meci of meciuri" (click)="selectMeci(meci)">
+      <ion-label>
+        <h2>{{ meci.denumire_meciuri }}</h2>
+        <p>{{ meci.data | date: 'short' }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+

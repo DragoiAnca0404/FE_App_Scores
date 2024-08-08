@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
 import * as jwt from 'jsonwebtoken';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 @Injectable({
@@ -12,6 +13,7 @@ export class RegisterServiceService {
   private apiUrl = 'https://localhost:44312/api'; // URL-ul API-ului
   private baseUrlLogin = 'https://localhost:44312/api/Authentication';
   private username: any;
+  private jwtHelper: JwtHelperService = new JwtHelperService();
 
   constructor(private http: HttpClient) { }
 
@@ -31,6 +33,17 @@ export class RegisterServiceService {
   getToken(): string | null {
     return localStorage.getItem('authToken');
   }
+
+  getRole(): string| null{
+    const token = this.getToken();
+    if (token) {
+      const decodedToken = this.jwtHelper.decodeToken(token);
+      return decodedToken.role; // Presupunem că rolul este în token
+    }
+    return null;
+  }
+
+
 
   clearToken(): void {
     localStorage.removeItem('authToken');

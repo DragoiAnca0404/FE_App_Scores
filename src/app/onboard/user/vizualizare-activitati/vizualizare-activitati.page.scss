@@ -1,22 +1,40 @@
 .meci-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 10px;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Textul la stânga, imaginea la dreapta */
+  text-align: left; /* Asigură alinierea textului la stânga */
+  margin: 10px;
+}
+
+.meci-button .meci-text {
+  flex: 1; /* Să ocupe restul spațiului disponibil */
+  font-family: 'Zing';font-size: 23px;
+
+}
+
+
+  .meci-button .meci-image {
+    margin-left: 0px; /* Spațiu între text și imagine */
+    max-width: 100px; /* Dimensiune maximă a imaginii */
+    max-height: 100px; /* Dimensiune maximă a imaginii */
+    border-radius: 50%; /* Exemplu de stilizare, imagine rotundă */
+    
+}
   
   .list-view {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 30px;
+
   }
   
   .grid-view {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding-top: 30px;
+
   }
   
   ion-segment {
@@ -38,6 +56,8 @@
   .page-title {
     text-align: center;
     flex: 1;
+    font-family: 'Poppins-ExtraLight';font-size: 25px;
+   // padding: 20px;
   }
   
   /* Stilizează butonul de adăugare */
@@ -48,6 +68,7 @@
   /* Segmentul */
   ion-segment {
     margin-top: 16px;
+    --indicator-color: transparent !important;
   }
   
   /* Vizualizare listă și grilă */
@@ -66,4 +87,4 @@
     width: calc(50% - 8px); /* Ajustare pentru vizualizarea grilă */
     margin: 4px;
   }
-  
+

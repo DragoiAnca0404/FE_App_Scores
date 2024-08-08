@@ -39,13 +39,18 @@ const routes: Routes = [
     loadChildren: () => import('./onboard/user/meciuri/meciuri.module').then( m => m.MeciuriPageModule)
   },
   {
-    path: 'vizualizare-meciuri/:denumireMeci',
+    path: 'vizualizare-meciuri/:denumireSport',
     loadChildren: () => import('./onboard/user/vizualizare-meciuri/vizualizare-meciuri.module').then( m => m.VizualizareMeciuriPageModule)
   },
   {
     path: 'vizualizare-activitati',
     loadChildren: () => import('./onboard/user/vizualizare-activitati/vizualizare-activitati.module').then( m => m.VizualizareActivitatiPageModule)
+  },
+  {
+    path: 'vizualizare-scoruri',
+    loadChildren: () => import('./onboard/user/vizualizare-scoruri/vizualizare-scoruri.module').then( m => m.VizualizareScoruriPageModule)
   }
+
 ];
 
 @NgModule({

@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Scoruri pentru {{ denumireMeci }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="scoruri && scoruri.length > 0">
+    <ion-item *ngFor="let scor of scoruri">
+      <ion-label>
+        <h3>{{ scor.denumire_echipa }}</h3>
+        <p>Scor: {{ scor.scor }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

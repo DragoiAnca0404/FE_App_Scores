@@ -3,8 +3,16 @@
 <ion-content>
   <!-- Imaginea cerc -->
   <!-- Container pentru titlu și butonul de adăugare -->
+
+  <!-- some-component.component.html -->
+<div *ngIf="isAdmin">
+  <ion-button>Admin Button</ion-button>
+</div>
+
+
+
   <div class="header-container">
-    <ion-title class="page-title">Activitatii</ion-title>
+    <ion-title class="page-title">Activități</ion-title>
   </div>
 
   <!-- Segment pentru schimbarea vizualizării -->
@@ -19,8 +27,9 @@
 
   <!-- Conținutul listei/gridului -->
   <div [ngClass]="{'list-view': viewMode === 'list', 'grid-view': viewMode === 'grid'}">
-    <ion-button *ngFor="let activitate of activitati" class="meci-button" shape="round" (click)="onMeciClick(activitate.titlu)">
-      {{ activitate.titlu }}
+    <ion-button *ngFor="let activitate of activitati" class="meci-button " shape="round" (click)="onMeciClick(activitate.titlu)">
+      <ion-text class="meci-text">{{ activitate.titlu }}</ion-text>
+      <ion-img [src]="activitate.imagineUrl" alt="Imagine meci" class="meci-image"></ion-img>
     </ion-button>
   </div>
 </ion-content>
