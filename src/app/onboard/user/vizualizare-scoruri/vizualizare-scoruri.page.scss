@@ -1,0 +1,122 @@
+ 
+  /* Container pentru titlu și butonul de adăugare */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    margin-top: 16px;
+  }
+
+
+  .page-title {
+    text-align: center;
+    flex: 1;
+    font-family: 'ZingTrue';font-size: 50px;
+    margin-bottom: 20%;
+  }
+
+
+    
+.fancy {
+  position: relative;
+  white-space: nowrap;
+  &:after {
+    --deco-height: 0.3125em;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(var(--deco-height) * -0.625);
+    height: var(--deco-height);
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='%23EBFF5D' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+    background-size: auto 100%;
+    background-repeat: round;
+    background-position: 0em;
+  }
+}
+
+
+.meci-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Textul la stânga, imaginea la dreapta */
+  text-align: left; /* Asigură alinierea textului la stânga */
+  margin: 10px;
+}
+
+.meci-button .meci-text {
+  flex: 1; /* Să ocupe restul spațiului disponibil */
+  font-family: 'Zing';font-size: 23px;
+
+}
+
+
+  .meci-button .meci-image {
+    margin-left: 0px; /* Spațiu între text și imagine */
+    max-width: 100px; /* Dimensiune maximă a imaginii */
+    max-height: 100px; /* Dimensiune maximă a imaginii */
+    border-radius: 50%; /* Exemplu de stilizare, imagine rotundă */
+    
+}
+
+.page-title-score{
+    font-family: 'pigment';font-size: 23px;
+}
+
+h3{
+        font-family: 'Zing';font-size: 23px;
+}
+
+p{
+        font-family: 'Zing';font-size: 23px;
+}
+
+.list-md 
+{
+  background: transparent !important;
+}
+
+  .score-card {
+    display: flex;
+    flex-direction: column; /* Afișăm elementele pe coloane */
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #ebff5d;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Adăugăm spațiu între carduri */
+  }
+  
+  .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px; /* Spațiu între echipă și "VS" */
+    color: black;
+  }
+  
+  .vs {
+    margin-bottom: 10px; /* Spațiu între "VS" și echipa următoare */
+    text-align: center;
+  }
+  
+  .score-number {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  
+  ion-item {
+    --background: transparent;
+  }
+
+  img {
+    border-radius: 50%;
+    width:100%;
+  }
+
+  img.sc-ion-label-md{
+    width:100%;
+  }
+  

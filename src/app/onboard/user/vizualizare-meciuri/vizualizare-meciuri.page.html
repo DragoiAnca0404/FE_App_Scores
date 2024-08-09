@@ -1,18 +1,20 @@
+<ion-img class="circle" src="assets/circle/Group.png"></ion-img>
+
 <ion-content>
 
 
   <div class="header-container">
-    <ion-title class="page-title">Meciuri pentru {{ denumireSport }}</ion-title>
+    <ion-title class="page-title fancy">Meciuri</ion-title>
   </div>
 
 
-  <ion-list>
-    <ion-item *ngFor="let meci of meciuri" (click)="selectMeci(meci)">
+  <ion-content>
+    <ion-button class="meci-button " *ngFor="let meci of meciuri" (click)="selectMeci(meci)">
       <ion-label>
-        <h2>{{ meci.denumire_meciuri }}</h2>
-        <p>{{ meci.data | date: 'short' }}</p>
+        <ion-text class="meci-text">{{ meci.denumire_meciuri }}</ion-text>
+        <div>&nbsp;</div>
+        <ion-text>{{ meci.data | date: 'short' }}</ion-text>
       </ion-label>
-    </ion-item>
-  </ion-list>
-
+    </ion-button>
+  </ion-content>
 

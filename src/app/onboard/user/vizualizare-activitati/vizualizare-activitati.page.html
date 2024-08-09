@@ -5,16 +5,15 @@
   <!-- Container pentru titlu și butonul de adăugare -->
 
   <!-- some-component.component.html -->
-<div *ngIf="isAdmin">
-  <ion-button>Admin Button</ion-button>
-</div>
-
-
 
   <div class="header-container">
-    <ion-title class="page-title">Activități</ion-title>
+    <ion-title class="page-title fancy ">Activități</ion-title>
   </div>
 
+  <ion-button shape="round" *ngIf="isAdmin">
+    <ion-icon slot="icon-only" name="add"></ion-icon>
+  </ion-button>
+  
   <!-- Segment pentru schimbarea vizualizării -->
   <ion-segment [(ngModel)]="viewMode">
     <ion-segment-button value="list">

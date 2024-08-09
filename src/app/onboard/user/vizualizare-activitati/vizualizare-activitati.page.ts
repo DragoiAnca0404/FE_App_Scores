@@ -20,7 +20,7 @@ export class VizualizareActivitatiPage implements OnInit {
   ngOnInit(): void {
     const role = this.authService.getRole();
     console.log('User role:', role); // Adaugă log pentru a verifica rolul
-    this.isAdmin = role === 'admin';
+    this.isAdmin = role === 'Admin';
     console.log('isAdmin:', this.isAdmin); // Adaugă log pentru a verifica isAdmin
     this.meciuriService.getActivitati().subscribe(data => {
       console.log('Datele primite:', data); 
