@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { MeciuriService } from '../../services/meciuri.service';
 import { Router } from '@angular/router';
 import { RegisterServiceService } from 'src/app/signup-signin/services/register-service.service';
@@ -8,11 +8,13 @@ import { RegisterServiceService } from 'src/app/signup-signin/services/register-
   templateUrl: './vizualizare-activitati.page.html',
   styleUrls: ['./vizualizare-activitati.page.scss'],
 })
-export class VizualizareActivitatiPage implements OnInit {
+export class VizualizareActivitatiPage implements OnInit  {
 
   isAdmin: boolean = false;
   activitati: any[] = [];
   viewMode: string = 'list'; // 'list' sau 'grid'
+  isLoading = false;
+
 
   constructor(private meciuriService: MeciuriService, private router: Router,    private authService: RegisterServiceService,
   ) { }
@@ -37,6 +39,16 @@ export class VizualizareActivitatiPage implements OnInit {
 
 
   onMeciClick(denumireSport: string) {
-    this.router.navigate(['/vizualizare-meciuri', denumireSport]);
+    // Activează ecranul de încărcare
+    this.isLoading = true;
+
+    // Simulează o întârziere de 5 secunde pentru demonstrație
+    setTimeout(() => {
+      // Ascunde ecranul de încărcare după 5 secunde
+      this.isLoading = false;
+
+      // Navighează la pagina de vizualizare a meciurilor
+      this.router.navigate(['/vizualizare-meciuri', denumireSport]);
+    }, 5000);
   }
 }

@@ -24,6 +24,7 @@
 
   <!-- Conținutul listei/gridului -->
   <div [ngClass]="{'list-view': viewMode === 'list', 'grid-view': viewMode === 'grid'}">
+
     <ion-button *ngFor="let meci of meciuri" class="meci-button" shape="round" (click)="onMeciClick(meci.denumireMeci)">
       {{ meci.denumireMeci }}
     </ion-button>

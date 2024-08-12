@@ -6,13 +6,12 @@ import { authSuccessGuard } from './signup-signin/guards/auth-success.guard';
 
 const routes: Routes = [
   {
-    path: 'register',
-    loadChildren: () => import('./signup-signin/register/register/register.module').then(m => m.RegisterPageModule),
-   // canActivate: [userIsLoginGuard]
+    path: 'vizualizare-activitati',
+    loadChildren: () => import('./onboard/user/vizualizare-activitati/vizualizare-activitati.module').then( m => m.VizualizareActivitatiPageModule)
   },
   {
     path: '',
-    redirectTo: 'register',
+    redirectTo: 'vizualizare-activitati',
     pathMatch: 'full'
   },
   {
@@ -41,10 +40,6 @@ const routes: Routes = [
   {
     path: 'vizualizare-meciuri/:denumireSport',
     loadChildren: () => import('./onboard/user/vizualizare-meciuri/vizualizare-meciuri.module').then( m => m.VizualizareMeciuriPageModule)
-  },
-  {
-    path: 'vizualizare-activitati',
-    loadChildren: () => import('./onboard/user/vizualizare-activitati/vizualizare-activitati.module').then( m => m.VizualizareActivitatiPageModule)
   },
   {
     path: 'vizualizare-scoruri',
