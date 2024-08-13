@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Adaugă Meci</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="onSubmit()" [formGroup]="meciForm">
+    <ion-item>
+      <ion-label position="floating">Denumire Activitate</ion-label>
+      <ion-input formControlName="denumireActivitate"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Denumire Meci</ion-label>
+      <ion-input formControlName="denumireMeci"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Data Meci</ion-label>
+      <ion-datetime formControlName="dataMeci"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Denumire Echipa</ion-label>
+      <ion-input formControlName="denumireEchipa"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Scor</ion-label>
+      <ion-input type="number" formControlName="scor"></ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit">Trimite</ion-button>
+  </form>
+</ion-content>
+

@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class MeciuriService {
   private apiUrl = 'https://localhost:44312/api/GestionareMeciuri';
+  private apiUrlAdd = 'https://localhost:44312/api/GestionareMeciuri/add';
+
 
   constructor(private http: HttpClient) { }
 
@@ -37,6 +39,10 @@ export class MeciuriService {
       .set('data', data);
 
     return this.http.get<any[]>(`${this.apiUrl}/scoruri`, { params });
+  }
+
+  addMeci(meci: any): Observable<any> {
+    return this.http.post<any>(this.apiUrlAdd, meci);
   }
   
 }

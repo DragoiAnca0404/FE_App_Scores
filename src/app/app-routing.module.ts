@@ -44,7 +44,11 @@ const routes: Routes = [
   {
     path: 'vizualizare-scoruri',
     loadChildren: () => import('./onboard/user/vizualizare-scoruri/vizualizare-scoruri.module').then( m => m.VizualizareScoruriPageModule)
+  },  {
+    path: 'adaugare-meci-nou',
+    loadChildren: () => import('./onboard/admin/adaugare-meci-nou/adaugare-meci-nou.module').then( m => m.AdaugareMeciNouPageModule)
   }
+
 
 ];
 

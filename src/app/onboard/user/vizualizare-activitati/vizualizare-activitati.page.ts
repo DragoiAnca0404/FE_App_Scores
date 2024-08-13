@@ -51,4 +51,10 @@ export class VizualizareActivitatiPage implements OnInit  {
       this.router.navigate(['/vizualizare-meciuri', denumireSport]);
     }, 5000);
   }
+
+
+  
+  onClickAddMeci() {
+    this.router.navigate(['/adaugare-meci-nou']);
+  }
 }
