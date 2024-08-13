@@ -6,12 +6,12 @@ import { authSuccessGuard } from './signup-signin/guards/auth-success.guard';
 
 const routes: Routes = [
   {
-    path: 'vizualizare-activitati',
-    loadChildren: () => import('./onboard/user/vizualizare-activitati/vizualizare-activitati.module').then( m => m.VizualizareActivitatiPageModule)
-  },
+    path: 'login-page',
+    loadChildren: () => import('./signup-signin/login/login-page/login-page.module').then( m => m.LoginPagePageModule)
+      },
   {
     path: '',
-    redirectTo: 'vizualizare-activitati',
+    redirectTo: 'login-page',
     pathMatch: 'full'
   },
   {
@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'login-page',
     loadChildren: () => import('./signup-signin/login/login-page/login-page.module').then( m => m.LoginPagePageModule)
+      },
+      {
+        path: 'vizualizare-activitati',
+        loadChildren: () => import('./onboard/user/vizualizare-activitati/vizualizare-activitati.module').then( m => m.VizualizareActivitatiPageModule)
       },
   {
     path: 'login-2-fa',
@@ -44,7 +48,8 @@ const routes: Routes = [
   {
     path: 'vizualizare-scoruri',
     loadChildren: () => import('./onboard/user/vizualizare-scoruri/vizualizare-scoruri.module').then( m => m.VizualizareScoruriPageModule)
-  },  {
+  },
+  {
     path: 'adaugare-meci-nou',
     loadChildren: () => import('./onboard/admin/adaugare-meci-nou/adaugare-meci-nou.module').then( m => m.AdaugareMeciNouPageModule)
   }

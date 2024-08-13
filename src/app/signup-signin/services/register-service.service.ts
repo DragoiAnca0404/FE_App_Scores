@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
 import * as jwt from 'jsonwebtoken';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Http } from '@capacitor-community/http';
 
 
 @Injectable({
@@ -11,7 +12,9 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class RegisterServiceService {
 
   private apiUrl = 'https://localhost:44312/api'; // URL-ul API-ului
-  private baseUrlLogin = 'https://localhost:44312/api/Authentication';
+  private baseUrlLogin = 'http://192.168.1.144/api/Authentication';
+//http://192.168.1.144/api/Authentication/login
+
   private username: any;
   private jwtHelper: JwtHelperService = new JwtHelperService();
 
@@ -56,10 +59,41 @@ export class RegisterServiceService {
     return this.http.post(url, user, { headers: headers, withCredentials: true });
   }
 
-  login2(credentials: { username: string, password: string }): Observable<any> {
+  login2(credentials: { username: string, password: string }): Promise<any> {
+    if (!credentials || !credentials.username || !credentials.password) {
+        console.error('Invalid credentials object:', credentials);
+        return Promise.reject('Invalid credentials object');
+    }
+
+    const url = `${this.baseUrlLogin}/login`;
+    const options = {
+        url: url,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        data: credentials,
+        withCredentials: true
+    };
+
+    console.log('HTTP request options:', options);
+
+    return Http.request(options).then(response => {
+        console.log('HTTP request successful:', response);
+        return response;
+    }).catch(error => {
+        console.error('HTTP request failed:', error);
+        throw error;
+    });
+}
+
+
+
+
+    
+/*  login2(credentials: { username: string, password: string }): Observable<any> {
     const url = `${this.baseUrlLogin}/login`;
     return this.http.post(url, credentials, { withCredentials: true });
   }
+*/
 
   login2FA(credentials: { username: string, code: string }): Observable<any> {
     const url = `${this.baseUrlLogin}/login-2FA`;
