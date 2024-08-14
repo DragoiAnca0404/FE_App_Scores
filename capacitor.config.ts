@@ -1,17 +1,14 @@
-import { CapacitorConfig } from '@capacitor/cli';
+import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.example.app',
-  appName: 'MyApp',
+  appId: 'io.ionic.starter',
+  appName: 'FE_App_Scores',
   webDir: 'www',
-  bundledWebRuntime: false,
   server: {
-    allowNavigation: [
-      "https://your-backend-url.com",
-      "http://localhost:8100",
-      "capacitor://localhost"
-    ]
+    cleartext: true,
+    hostname: '192.168.1.134'
   }
+  
 };
 
 export default config;

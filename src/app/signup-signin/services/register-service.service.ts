@@ -12,7 +12,7 @@ import { Http } from '@capacitor-community/http';
 export class RegisterServiceService {
 
   private apiUrl = 'https://localhost:44312/api'; // URL-ul API-ului
-  private baseUrlLogin = 'http://192.168.1.144/api/Authentication';
+  private baseUrlLogin = 'https://192.168.1.134/api/Authentication';
 //http://192.168.1.144/api/Authentication/login
 
   private username: any;
@@ -59,7 +59,7 @@ export class RegisterServiceService {
     return this.http.post(url, user, { headers: headers, withCredentials: true });
   }
 
-  login2(credentials: { username: string, password: string }): Promise<any> {
+  /*login2(credentials: { username: string, password: string }): Promise<any> {
     if (!credentials || !credentials.username || !credentials.password) {
         console.error('Invalid credentials object:', credentials);
         return Promise.reject('Invalid credentials object');
@@ -84,16 +84,16 @@ export class RegisterServiceService {
         throw error;
     });
 }
-
+*/
 
 
 
     
-/*  login2(credentials: { username: string, password: string }): Observable<any> {
+  login2(credentials: { username: string, password: string }): Observable<any> {
     const url = `${this.baseUrlLogin}/login`;
     return this.http.post(url, credentials, { withCredentials: true });
   }
-*/
+
 
   login2FA(credentials: { username: string, code: string }): Observable<any> {
     const url = `${this.baseUrlLogin}/login-2FA`;

@@ -29,7 +29,7 @@ export class LoginPagePage implements OnInit {
 
   
 
- onLogin() {
+ /*onLogin() {
     if (this.loginForm.valid) {
       const loginData = this.loginForm.value;
       this.authService.login2(loginData).then(
@@ -45,10 +45,10 @@ export class LoginPagePage implements OnInit {
       );
     }
   }
-  }
+  }*/
 
 
-/*onLogin() {
+onLogin() {
   if (this.loginForm.valid) {
     const loginData = this.loginForm.value;
     this.authService.login2(loginData).subscribe(
@@ -64,4 +64,4 @@ export class LoginPagePage implements OnInit {
     );
   }
 }
-}*/
+}
