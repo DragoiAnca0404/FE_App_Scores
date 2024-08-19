@@ -52,4 +52,8 @@ export class VizualizareActivitatiPage implements OnInit {
   onClickAddMeci() {
     this.router.navigate(['/adaugare-meci-nou']);
   }
+
+  onClickAddEchipa() {
+    this.router.navigate(['/adaugare-echipa']);
+  }
 }

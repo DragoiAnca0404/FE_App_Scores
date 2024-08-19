@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { MeciuriService } from '../../services/meciuri.service';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -11,10 +11,12 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 })
 export class AdaugareMeciNouPage implements OnInit {
   meciForm: FormGroup = new FormGroup({});
-  showCalendar: boolean = false;
   activitati: any[] = [];
   echipeList: any[] = [];
   errorMessage: string | null = null;
+  submitted: boolean = false; // Indicator de trimitere
+  echipeIdentice: boolean = false; // Indicator pentru echipe identice
+  meciDenumire: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -22,6 +24,7 @@ export class AdaugareMeciNouPage implements OnInit {
     private router: Router,
     private http: HttpClient
   ) {}
+
 
   ngOnInit() {
     this.meciForm = this.fb.group({
@@ -72,31 +75,52 @@ export class AdaugareMeciNouPage implements OnInit {
 
   removeEchipa(index: number) {
     if (this.echipe().length > 2) {
-      this.echipe().removeAt(index); // Elimină echipa la indexul specificat
+      this.echipe().removeAt(index);
     }
   }
 
+  validateEchipe() {
+    const echipeControls = this.echipe().controls;
+    const selectedEchipe = echipeControls.map(control => control.get('denumireEchipa')!.value);
+    this.echipeIdentice = false;
+
+    echipeControls.forEach(control => {
+      const echipaControl = control.get('denumireEchipa');
+      if (echipaControl) {
+        const duplicates = selectedEchipe.filter(value => value === echipaControl.value);
+        if (duplicates.length > 1) {
+          echipaControl.setErrors({ duplicate: true });
+          this.echipeIdentice = true;
+        } else {
+          echipaControl.setErrors(null);
+        }
+      }
+    });
+  }
+
   onSubmit() {
-    if (this.meciForm.valid) {
+    this.submitted = true;
+    this.validateEchipe(); // Validează echipele înainte de trimitere
+
+    if (this.meciForm.valid && !this.echipeIdentice) {
       const formValue = this.meciForm.value;
       this.meciuriService.addMeci(formValue).subscribe(
         response => {
+          this.meciuriService.setMeciDenumire(this.meciForm.get('denumireMeci')?.value);
           console.log('Meci adăugat cu succes!', response);
-          this.router.navigate(['/success-msg-register']);
+          this.router.navigate(['/success-msg-add-meci']);
         },
         error => {
           console.error('Eroare la adăugarea meciului!', error);
           this.errorMessage = 'Eroare la adăugarea meciului!';
         }
       );
+    } else {
+      console.log('Formular invalid sau echipe identice', this.meciForm);
     }
   }
 
   clearErrorMessage() {
     this.errorMessage = null;
-  }
-
-  openCalendar() {
-    this.showCalendar = true;
   }
 }

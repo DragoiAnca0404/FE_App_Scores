@@ -52,7 +52,19 @@ const routes: Routes = [
   {
     path: 'adaugare-meci-nou',
     loadChildren: () => import('./onboard/admin/adaugare-meci-nou/adaugare-meci-nou.module').then(m => m.AdaugareMeciNouPageModule)
+  },  {
+    path: 'success-msg-add-meci',
+    loadChildren: () => import('./onboard/admin/success-msg-add-meci/success-msg-add-meci.module').then( m => m.SuccessMsgAddMeciPageModule)
+  },
+  {
+    path: 'adaugare-echipa',
+    loadChildren: () => import('./onboard/admin/adaugare-echipa/adaugare-echipa.module').then( m => m.AdaugareEchipaPageModule)
+  },
+  {
+    path: 'success-msg-add-echipa',
+    loadChildren: () => import('./onboard/admin/success-msg-add-echipa/success-msg-add-echipa.module').then( m => m.SuccessMsgAddEchipaPageModule)
   }
+
 
 
 ];

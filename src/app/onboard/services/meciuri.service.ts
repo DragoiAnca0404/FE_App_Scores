@@ -9,6 +9,7 @@ export class MeciuriService {
   private apiUrl = 'https://localhost:44312/api/GestionareMeciuri';
   private apiUrlAdd = 'https://localhost:44312/api/GestionareMeciuri/add';
 
+  meciDenumire: string = '';
 
   constructor(private http: HttpClient) { }
 
@@ -43,6 +44,19 @@ export class MeciuriService {
 
   addMeci(meci: any): Observable<any> {
     return this.http.post<any>(this.apiUrlAdd, meci);
+  }
+
+  
+  addEchipa(echipa: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/Create`, echipa, { responseType: 'text' as 'json' });
+  }
+
+  setMeciDenumire(value: string) {
+    this.meciDenumire = value;
+  }
+
+  getMeciDenumire() {
+    return this.meciDenumire;
   }
   
 }

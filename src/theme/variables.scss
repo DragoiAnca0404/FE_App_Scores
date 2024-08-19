@@ -57,7 +57,7 @@ ion-datetime.custom-datetime ::ng-deep .calendar-week-day {
 }
 
 ion-datetime::part(calendar-day) {
-  color: #000000;
+  color: #f3f3f3;
 }
 
 ion-datetime::part(calendar-day today) {
@@ -73,7 +73,7 @@ ion-datetime.md::part(calendar-day active),
 ion-datetime.md::part(calendar-day active):focus {
   background-color: #ebff5d;
   border-color: #ebff5d;
-  color: #f5f5f5;
+  color: #000000;
 }
 
 ion-datetime.md::part(calendar-day today) {
@@ -82,7 +82,7 @@ ion-datetime.md::part(calendar-day today) {
 
 ion-datetime.ios::part(calendar-day active),
 ion-datetime.ios::part(calendar-day active):focus {
-  background-color: rgb(154 209 98 / 0.2);
+  background-color: rgba(153, 247, 59, 0.2);
   color: #ebff5d;
   border: 1px solid #ebff5d;
 }
