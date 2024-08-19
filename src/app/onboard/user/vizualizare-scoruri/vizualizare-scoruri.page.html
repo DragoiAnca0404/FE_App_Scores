@@ -1,35 +1,22 @@
 <ion-img class="circle" src="assets/circle/Group.png"></ion-img>
 
 <ion-content>
-
-
-<div class="header-container">
-  <ion-title class="page-title fancy">Scoruri</ion-title>
-</div>
-
-
-
-
-<ion-content>
-  <ion-list *ngIf="scoruri && scoruri.length > 0">
-    <ion-item *ngFor="let scor of scoruri; let i = index">
-      <ion-label>
-        <div class="score-card">
-          <div class="team">
-            <!--<ion-img src="assets/hands.png"  alt="Avatar" style="width:100px">-->
-            <h3>{{ scor.denumire_echipa }}</h3>
-            <span class="score-number">{{ scor.scor }}</span>
-          </div> 
-        </div>
-        <div *ngIf="i < scoruri.length - 1" class="vs">
-          <h3>VS</h3>
-        </div>
-      </ion-label>
-
-    </ion-item>
-  </ion-list>
-</ion-content>
-
-
-
+  <div class="header-container">
+    <ion-title class="page-title fancy">Scoruri</ion-title>
+  </div>
+    <ion-list *ngIf="scoruri && scoruri.length > 0">
+      <ion-item *ngFor="let scor of scoruri; let i = index">
+        <ion-label>
+          <div class="score-card">
+            <div class="team">
+              <h3>{{ scor.denumire_echipa }}</h3>
+              <span class="score-number">{{ scor.scor }}</span>
+            </div>
+          </div>
+          <div *ngIf="i < scoruri.length - 1" class="vs">
+            <h3>VS</h3>
+          </div>
+        </ion-label>
+      </ion-item>
+    </ion-list>
 </ion-content>

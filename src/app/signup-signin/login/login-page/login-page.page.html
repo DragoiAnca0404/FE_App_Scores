@@ -1,53 +1,42 @@
 <ion-img class="circle" src="assets/circle/Group.png"></ion-img>
 
 <ion-content>
+  <ion-row class="ion-justify-content-center">
+    <ion-img src="assets/login/presentation-illustration.png" style="width: 300px; height: 300px;"
+      alt="Register Icon"></ion-img>
+  </ion-row>
 
-
-<ion-row class="ion-justify-content-center">
-  <ion-img src="assets/login/presentation-illustration.png" style="width: 300px; height: 300px;"alt="Register Icon"></ion-img>
-</ion-row>
-
-
-
-<ion-row class="ion-justify-content-center ion-margin-top">
-  <ion-item class="ion-no-padding" lines="none">
-    <ion-img src="assets/login/icon-login.png" alt="Login Icon" style="width: 20px; height: 20px;"></ion-img>
-    <ion-title>Login</ion-title>
-  </ion-item>
-</ion-row>
-
-
-
+  <ion-row class="ion-justify-content-center ion-margin-top">
+    <ion-item class="ion-no-padding" lines="none">
+      <ion-img src="assets/login/icon-login.png" alt="Login Icon" style="width: 20px; height: 20px;"></ion-img>
+      <ion-title>Login</ion-title>
+    </ion-item>
+  </ion-row>
 
   <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
     <ion-item>
       <ion-input formControlName="username" type="text"></ion-input>
     </ion-item>
     <ion-item *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid">
-      <ion-note color="danger" *ngIf="loginForm.get('username')?.errors?.['required']">Va rugam introduceti username.</ion-note>
-
+      <ion-note color="danger" *ngIf="loginForm.get('username')?.errors?.['required']">Va rugam introduceti
+        username.</ion-note>
     </ion-item>
-
     <ion-item>
       <ion-input formControlName="password" type="password">
         <ion-input-password-toggle slot="end"></ion-input-password-toggle>
       </ion-input>
     </ion-item>
     <ion-item *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
-      <ion-note color="danger" *ngIf="loginForm.get('password')?.errors?.['required']">Va rugam introduceti parola.</ion-note>
-
+      <ion-note color="danger" *ngIf="loginForm.get('password')?.errors?.['required']">Va rugam introduceti
+        parola.</ion-note>
     </ion-item>
-
     <ion-button class="center-button" type="submit" [disabled]="loginForm.invalid">Autentificare</ion-button>
   </form>
-
   <ion-item *ngIf="errorMessage">
     <ion-note color="danger">
       {{ errorMessage }}
     </ion-note>
   </ion-item>
-
-    
   <ion-text class="ion-text-center ion-margin-top">
     <p>Nu ai deja cont? <a routerLink="/register">Creaza-ti cont!</a></p>
   </ion-text>

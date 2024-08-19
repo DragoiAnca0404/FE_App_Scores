@@ -1,100 +1,48 @@
-/* Stilizare pentru ion-input */
-ion-input {
-  --background-color: #fff;              /* Culoarea de fundal a input-ului */
-  --text-color: #000;                    /* Culoarea textului */
-  --border-radius: 2em;                  /* Raza colțurilor rotunjite folosind em */
-  --padding-horizontal: 0.75em;          /* Padding pe orizontală folosind em */
-  display: block;
-  width: 100%;                           /* Lățimea se menține ca procent */
-  margin-bottom: 0.75em;                 /* Marginea de jos folosind em */
-}
-
-/* Stilizare pentru ion-button */
 ion-button {
-  --button-background: #ebff5d;          /* Culoarea de fundal a butonului */
-  --button-text-color: #000000;          /* Culoarea textului butonului */
-  --button-border-radius: 2em;           /* Raza colțurilor rotunjite ale butonului folosind em */
+  --button-background: #ebff5d;
+  --button-text-color: #000000;
+  --button-border-radius: 2em;
   display: block;
-  margin: 1.25em auto;                   /* Margini verticale folosind em și centrare pe orizontală */
+  margin: 1.25em auto;
 }
 
-/* Stilizare pentru ion-label */
 ion-label {
-  --label-text-color: #000000;           /* Culoarea textului label-ului */
+  --label-text-color: #000000;
   display: block;
-  width: 100%;                           /* Lățimea se menține ca procent */
-  margin-top: 0.75em;                    /* Marginea de sus folosind em */
-  text-align: center;                    /* Aliniere centrală a textului */
+  width: 100%;
+  margin-top: 0.75em;
+  text-align: center;
 }
 
-/* Stilizare pentru titluri de pagină */
-.page-title {
-  text-align: center;                    /* Aliniere centrală a textului */
-  flex: 1;
-  font-family: 'ZingTrue';               /* Fontul folosit */
-  font-size: 2.2em;                      /* Dimensiunea fontului folosind em */
-  margin-bottom: 10%;                    /* Marginea de jos ca procent din înălțimea elementului părinte */
-}
-
-/* Stilizare pentru elemente fancy cu decor */
 .fancy {
   position: relative;
-  white-space: nowrap;                   /* Împiedică întreruperea liniei */
+  white-space: nowrap;
 }
+
 .fancy::after {
-  --decorative-line-height: 0.3125em;    /* Înălțimea liniei decorative folosind em */
+  --decorative-line-height: 0.3125em;
   content: "";
   position: absolute;
   left: 0;
   right: 0;
-  bottom: calc(var(--decorative-line-height) * -0.625); /* Poziționarea verticală a liniei */
-  height: var(--decorative-line-height); /* Înălțimea liniei decorative folosind em */
+  bottom: calc(var(--decorative-line-height) * -0.625);
+  height: var(--decorative-line-height);
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='%23EBFF5D' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
   background-size: auto 100%;
   background-repeat: round;
   background-position: 0em;
 }
 
-/* Stilizare pentru containerul header-ului */
 .header-container {
   display: flex;
-  justify-content: space-between;         /* Aliniază elementele pe orizontală, cu spațiu egal între ele */
-  align-items: center;                    /* Aliniază elementele pe verticală */
-  padding: 0 1em;                         /* Padding pe orizontală folosind em */
-  margin-top: 1em;                        /* Marginea de sus folosind em */
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+  margin-top: 1em;
 }
 
-/* Stilizare pentru calendarul centrat */
 .centered-calendar {
-  display: flex;
-  justify-content: center;                /* Centrează elementul pe orizontală */
-  align-items: center;                    /* Centrează elementul pe verticală */
-  width: 100%;                           /* Lățimea se menține ca procent */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
-
-/* Stilizare pentru ion-datetime personalizat */
-ion-datetime.custom-datetime {
-  --datetime-background: #ebff5d;        /* Culoarea de fundal a datetime-ului */
-  --datetime-text-color: #ffffff;        /* Culoarea textului */
-  --datetime-border-radius: 2em;         /* Raza colțurilor rotunjite folosind em */
-  --datetime-padding-horizontal: 0.75em; /* Padding pe orizontală folosind em */
-  width: auto;                           /* Ajustează lățimea pentru a se potrivi conținutului */
-  max-width: 100%;                       /* Asigură că datetime-ul nu depășește containerul */
-  text-align: center;                    /* Aliniază textul centrat */
-}
-
-/* Stilizare pentru zilele active din calendar */
-ion-datetime.custom-datetime ::ng-deep .calendar-day-active {
-  color: #ebff5d;                        /* Culoarea zilelor active */
-}
-
-/* Stilizare pentru zilele neactive și săptămâna din calendar */
-ion-datetime.custom-datetime ::ng-deep .calendar-day {
-  color: #ffffff;                        /* Culoarea zilelor neactive */
-}
-
-ion-datetime.custom-datetime ::ng-deep .calendar-week-day {
-  color: #ffffff;                        /* Culoarea zilelor săptămânii */
-}
-
-

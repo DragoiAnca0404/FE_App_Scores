@@ -18,52 +18,48 @@ ion-title {
   text-align: center;
 }
 
-
-
 .center-button {
   display: block;
   margin: 0 auto;
   padding: 2%;
 }
 
-
-
-a{
+a {
   color: #ebff5d;
   opacity: 0.7;
 }
 
-ion-title{
+ion-title {
   font-weight: bold;
 }
 
-.presentation-register{
-  font-family: 'Poppins-ExtraLight';font-size: 13px;
+.presentation-register {
+  font-family: 'Poppins-ExtraLight';
+  font-size: 13px;
   padding: 20px;
   opacity: 0.5;
 }
 
-ion-note{
-  font-family: 'Poppins-ExtraLight';font-size: 13px;
+ion-note {
+  font-family: 'Poppins-ExtraLight';
+  font-size: 13px;
   padding: 20px;
-
 }
 
-
 ion-label {
-  --color: #000000; /* Culoare pentru text */
+  --color: #000000;
 }
 
 ion-input {
-  --background: #fff; /* Culoare pentru input */
-  --color: #000; /* Culoare text pentru input */
+  --background: #fff;
+  --color: #000;
   --border-radius: 30px;
   --padding-start: 12px;
 }
 
 ion-button {
-  --background: #ebff5d; /* Culoare pentru buton */
-  --color: #000000; /* Culoare text buton */
+  --background: #ebff5d;
+  --color: #000000;
   --border-radius: 30px;
   --display: block;
   --margin: 0 auto;

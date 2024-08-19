@@ -22,14 +22,13 @@ export class VizualizareScoruriPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private meciuriService: MeciuriService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.denumireMeci = params['denumireMeci'];
       this.data = params['data'];
 
-      // Fetch the scores based on the parameters
       this.meciuriService.getScoruri(this.denumireMeci, this.data).subscribe(data => {
         console.log('Scoruri primite:', data);
         this.scoruri = data;

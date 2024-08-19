@@ -3,58 +3,78 @@
     <ion-title class="page-title fancy">Adaugă Meci</ion-title>
   </div>
 
-  <form (ngSubmit)="onSubmit()" [formGroup]="meciForm">
-    <ion-item>
-      <ion-label>Denumire Activitate</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-select formControlName="denumireActivitate">
-        <ion-select-option *ngFor="let activitate of activitati" [value]="activitate.titlu">
-          {{ activitate.titlu }}
-        </ion-select-option>
-      </ion-select>
-    </ion-item>
+  <ion-card>
+    <img alt="Img adauga meci" src="assets/add-meci.png" />
+    <ion-card-header class="ion-text-center">
+      <ion-card-title>
+        <ion-icon name="duplicate-outline"></ion-icon>&nbsp; Formular de Evidență a Scorurilor
+      </ion-card-title>
+      <ion-card-subtitle>Vă rugăm să completați formularul de mai jos pentru a înregistra scorurile meciurilor.
+      </ion-card-subtitle>
+    </ion-card-header>
 
-    <ion-item>
-      <ion-label>Denumire Meci</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-input formControlName="denumireMeci"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Data Meci</ion-label>
-    </ion-item>
-
-    <ion-item class="centered-calendar">
-      <ion-datetime formControlName="dataMeci" class="custom-datetime"></ion-datetime>
-    </ion-item>
-
-    <div formArrayName="echipe" *ngFor="let echipa of echipe().controls; let i = index;">
-      <div [formGroupName]="i">
+    <ion-card-content>
+      <form (ngSubmit)="onSubmit()" [formGroup]="meciForm">
         <ion-item>
-          <ion-label>Echipa {{ i + 1 }}</ion-label>
+          <ion-label>Denumire Activitate</ion-label>
         </ion-item>
         <ion-item>
-          <ion-select formControlName="denumireEchipa">
-            <ion-select-option *ngFor="let echipa of echipeList" [value]="echipa.denumireEchipa">
-              {{ echipa.denumireEchipa }}
+          <ion-select formControlName="denumireActivitate">
+            <ion-select-option *ngFor="let activitate of activitati" [value]="activitate.titlu">
+              {{ activitate.titlu }}
             </ion-select-option>
           </ion-select>
         </ion-item>
 
         <ion-item>
-          <ion-label>Scor</ion-label>
+          <ion-label>Denumire Meci</ion-label>
         </ion-item>
         <ion-item>
-          <ion-input type="number" formControlName="scor"></ion-input>
+          <ion-input formControlName="denumireMeci"></ion-input>
         </ion-item>
-        <ion-button *ngIf="echipe().length > 2" color="danger" (click)="removeEchipa(i)">
-          <ion-icon name="trash-outline"></ion-icon>
-        </ion-button>
-      </div>
-    </div>
-    <ion-button type="button" (click)="addEchipa()"><ion-icon name="add-outline"></ion-icon></ion-button>
-    <ion-button type="submit" [disabled]="echipe().length < 2">Trimite</ion-button>
-  </form>
+
+        <ion-item>
+          <ion-label>Data Meci</ion-label>
+        </ion-item>
+        <ion-item class="centered-calendar">
+          <ion-datetime formControlName="dataMeci" class="custom-datetime"></ion-datetime>
+        </ion-item>
+
+        <div formArrayName="echipe" *ngFor="let echipa of echipe().controls; let i = index;">
+          <div [formGroupName]="i">
+            <ion-item>
+              <ion-label>Echipa {{ i + 1 }}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-select formControlName="denumireEchipa">
+                <ion-select-option *ngFor="let echipa of echipeList" [value]="echipa.denumireEchipa">
+                  {{ echipa.denumireEchipa }}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Scor</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-input type="number" formControlName="scor"></ion-input>
+            </ion-item>
+            <ion-button *ngIf="echipe().length > 2" color="danger" (click)="removeEchipa(i)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+        <ion-button type="button" (click)="addEchipa()"><ion-icon name="add-outline"></ion-icon></ion-button>
+        <ion-button type="submit" [disabled]="echipe().length < 2">Trimite</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-alert
+    *ngIf="errorMessage"
+    [header]="'Eroare'"
+    [message]="errorMessage"
+    [buttons]="['OK']"
+    (didDismiss)="clearErrorMessage()">
+  </ion-alert>
 </ion-content>

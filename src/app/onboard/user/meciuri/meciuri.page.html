@@ -1,10 +1,8 @@
 <ion-img class="circle" src="assets/circle/Group.png"></ion-img>
 
 <ion-content>
-  <!-- Imaginea cerc -->
-  <!-- Container pentru titlu și butonul de adăugare -->
   <div class="header-container">
-    <ion-title class="page-title">Meciuri</ion-title>
+    <ion-title class="page-title-meciuri">Meciuri</ion-title>
     <ion-buttons slot="end" class="add-button">
       <ion-button shape="round" (click)="onAddClick()">
         <ion-icon slot="icon-only" name="add"></ion-icon>
@@ -12,7 +10,6 @@
     </ion-buttons>
   </div>
 
-  <!-- Segment pentru schimbarea vizualizării -->
   <ion-segment [(ngModel)]="viewMode">
     <ion-segment-button value="list">
       Listă
@@ -22,7 +19,6 @@
     </ion-segment-button>
   </ion-segment>
 
-  <!-- Conținutul listei/gridului -->
   <div [ngClass]="{'list-view': viewMode === 'list', 'grid-view': viewMode === 'grid'}">
 
     <ion-button *ngFor="let meci of meciuri" class="meci-button" shape="round" (click)="onMeciClick(meci.denumireMeci)">
@@ -30,5 +26,3 @@
     </ion-button>
   </div>
 </ion-content>
-
-

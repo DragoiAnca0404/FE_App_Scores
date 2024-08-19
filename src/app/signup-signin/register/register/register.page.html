@@ -11,7 +11,8 @@
   </ion-row>
 
   <div class="ion-text-center ion-margin-bottom">
-    <ion-text class="presentation-register">Ține evidența scorurilor și bucură-te de momente pline de distracție alături de cei dragi.</ion-text>
+    <ion-text class="presentation-register">Ține evidența scorurilor și bucură-te de momente pline de distracție alături
+      de cei dragi.</ion-text>
   </div>
 
   <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="ion-margin-top">
@@ -20,7 +21,8 @@
       <ion-input formControlName="username" type="text" placeholder="Introdu username"></ion-input>
     </ion-item>
     <ion-item *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
-      <ion-note color="danger" *ngIf="registerForm.get('username')?.errors?.['required']">Va rugam sa introduceti username.</ion-note>
+      <ion-note color="danger" *ngIf="registerForm.get('username')?.errors?.['required']">Va rugam sa introduceti
+        username.</ion-note>
     </ion-item>
 
     <ion-item>
@@ -28,8 +30,10 @@
       <ion-input formControlName="email" type="email" placeholder="Introdu e-mail"></ion-input>
     </ion-item>
     <ion-item *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
-      <ion-note color="danger" *ngIf="registerForm.get('email')?.errors?.['required']">Va rugam introduceti e-mail.</ion-note>
-      <ion-note color="danger" *ngIf="registerForm.get('email')?.errors?.['email']">Introduce-ti o adresa de e-mail valida.</ion-note>
+      <ion-note color="danger" *ngIf="registerForm.get('email')?.errors?.['required']">Va rugam introduceti
+        e-mail.</ion-note>
+      <ion-note color="danger" *ngIf="registerForm.get('email')?.errors?.['email']">Introduce-ti o adresa de e-mail
+        valida.</ion-note>
     </ion-item>
 
     <ion-item>
@@ -37,8 +41,10 @@
       <ion-input formControlName="password" type="password" placeholder="Introdu parola"></ion-input>
     </ion-item>
     <ion-item *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
-      <ion-note color="danger" *ngIf="registerForm.get('password')?.errors?.['required']">Va rugam introduceti parola</ion-note>
-      <ion-note color="danger" *ngIf="registerForm.get('password')?.errors?.['minlength']">Introduce-ti o parola cu cel putin 6 caractere</ion-note>
+      <ion-note color="danger" *ngIf="registerForm.get('password')?.errors?.['required']">Va rugam introduceti
+        parola</ion-note>
+      <ion-note color="danger" *ngIf="registerForm.get('password')?.errors?.['minlength']">Introduce-ti o parola cu cel
+        putin 6 caractere</ion-note>
       <ion-note color="danger" *ngIf="registerForm.get('password')?.errors?.['pattern']">
         Parola trebuie sa contina cel putin un numar, un caracter special si o litera mare
       </ion-note>

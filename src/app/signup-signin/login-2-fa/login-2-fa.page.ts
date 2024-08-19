@@ -31,7 +31,7 @@ export class Login2FAPage implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   get code(): FormArray {
     return this.loginForm.get('code') as FormArray;
@@ -40,9 +40,9 @@ export class Login2FAPage implements OnInit {
   onLogin() {
     if (this.loginForm.valid) {
       const loginData = this.loginForm.value;
-      const code = loginData.code.join(''); // Asigură-te că `code` este un string
+      const code = loginData.code.join('');
       const credentials = {
-        username:  this.authService.getUsername(),
+        username: this.authService.getUsername(),
         code: code
       };
       this.authService.login2FA(credentials).subscribe(

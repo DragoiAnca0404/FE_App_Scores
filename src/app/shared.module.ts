@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms'; // Importează ReactiveFormsModule
-
+import { ReactiveFormsModule } from '@angular/forms'; 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
-    ReactiveFormsModule // Adaugă ReactiveFormsModule
+    ReactiveFormsModule 
     
   ],
   exports: [
     CommonModule,
     HttpClientModule,
-    ReactiveFormsModule // Exportă ReactiveFormsModule
+    ReactiveFormsModule 
   ]
 })
 export class SharedModule {}

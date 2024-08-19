@@ -10,15 +10,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class VizualizareMeciuriPage implements OnInit {
   meciuri: any[] = [];
-  scoruri: any[] = []; // To store the scores of the selected match
+  scoruri: any[] = []; 
   denumireSport!: string | null;
 
   constructor(
     private route: ActivatedRoute,
     private meciuriService: MeciuriService,
-    private router: Router  // Inject Router service
+    private router: Router  
 
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.denumireSport = this.route.snapshot.paramMap.get('denumireSport');
@@ -30,7 +30,6 @@ export class VizualizareMeciuriPage implements OnInit {
       });
     } else {
       console.error('Parametrul denumireSport este null');
-      // Handle the case where 'denumireSport' is null
     }
   }
 

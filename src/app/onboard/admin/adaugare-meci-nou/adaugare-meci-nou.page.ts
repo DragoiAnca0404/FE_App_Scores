@@ -10,17 +10,17 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./adaugare-meci-nou.page.scss'],
 })
 export class AdaugareMeciNouPage implements OnInit {
-  //meciForm: FormGroup;
-  meciForm: FormGroup = new FormGroup({}); // Inițializare
+  meciForm: FormGroup = new FormGroup({});
   showCalendar: boolean = false;
   activitati: any[] = [];
-  echipeList: any[] = []; // Lista echipei
+  echipeList: any[] = [];
+  errorMessage: string | null = null;
 
- 
-  constructor(private fb: FormBuilder, 
-    private meciuriService: MeciuriService, 
+  constructor(
+    private fb: FormBuilder,
+    private meciuriService: MeciuriService,
     private router: Router,
-    private http: HttpClient // Injectează HttpClient
+    private http: HttpClient
   ) {}
 
   ngOnInit() {
@@ -34,25 +34,23 @@ export class AdaugareMeciNouPage implements OnInit {
       ], Validators.required)
     });
 
-    //https://localhost:44312/api/GestionareMeciuri/VizualizareEchipe
-
-
     this.http.get<any[]>('https://localhost:44312/api/GestionareMeciuri/VizualizareActivitati').subscribe(
       (data: any[]) => {
         this.activitati = data;
       },
       (error: HttpErrorResponse) => {
         console.error('Eroare la obținerea activităților', error);
+        this.errorMessage = 'Eroare la obținerea activităților';
       }
     );
 
-    // Obține lista de echipe
     this.http.get<any[]>('https://localhost:44312/api/GestionareMeciuri/VizualizareEchipe').subscribe(
       (data: any[]) => {
         this.echipeList = data;
       },
       (error: HttpErrorResponse) => {
         console.error('Eroare la obținerea echipei', error);
+        this.errorMessage = 'Eroare la obținerea echipei';
       }
     );
   }
@@ -88,13 +86,17 @@ export class AdaugareMeciNouPage implements OnInit {
         },
         error => {
           console.error('Eroare la adăugarea meciului!', error);
+          this.errorMessage = 'Eroare la adăugarea meciului!';
         }
       );
     }
   }
 
+  clearErrorMessage() {
+    this.errorMessage = null;
+  }
+
   openCalendar() {
     this.showCalendar = true;
   }
-
 }

@@ -12,17 +12,16 @@ import { Http } from '@capacitor-community/http';
 export class RegisterServiceService {
 
   private apiUrl = 'https://localhost:44312/api'; // URL-ul API-ului
-  private baseUrlLogin = 'https://192.168.1.134/api/Authentication';
-//http://192.168.1.144/api/Authentication/login
-
+  // private baseUrlLogin = 'https://192.168.1.134/api/Authentication';
+  //http://192.168.1.144/api/Authentication/login
+  private baseUrlLogin = 'https://localhost:44312/api/Authentication';
   private username: any;
   private jwtHelper: JwtHelperService = new JwtHelperService();
 
   constructor(private http: HttpClient) { }
 
 
-  private UserRole    = new BehaviorSubject<any>(localStorage.getItem('role'));
-
+  private UserRole = new BehaviorSubject<any>(localStorage.getItem('role'));
 
   setUsername(username: string) {
     this.username = username;
@@ -31,7 +30,6 @@ export class RegisterServiceService {
   getUsername(): string {
     return this.username;
   }
-
 
   getToken(): string | null {
     return localStorage.getItem('authToken');
@@ -46,12 +44,9 @@ export class RegisterServiceService {
     return null;
   }
 
-
-
   clearToken(): void {
     localStorage.removeItem('authToken');
   }
-
 
   registerUser(user: any, role: string): Observable<any> {
     const url = `${this.apiUrl}/Authentication/register?role=${role}`;
@@ -86,9 +81,6 @@ export class RegisterServiceService {
 }
 */
 
-
-
-    
   login2(credentials: { username: string, password: string }): Observable<any> {
     const url = `${this.baseUrlLogin}/login`;
     return this.http.post(url, credentials, { withCredentials: true });

@@ -1,42 +1,108 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
 ion-content {
-    --background:#2B293E;
-    --overflow: auto;
+  --background: #2B293E;
+  --overflow: auto;
 }
 
-ion-item{
-    --background: transparent;
-     --lines:"none";
-  }
-
-  .circle{
-    background-color: #2B293E;
-    
+ion-item {
+  --background: transparent;
+  --lines: "none";
 }
 
-  .circle::part(image) {
-    width: 50%; 
- }
+.circle {
+  background-color: #2B293E;
+}
 
+.circle::part(image) {
+  width: 50%;
+}
 
- ion-label {
-  --color: #000000; /* Culoare pentru text */
+ion-label {
+  --color: #000000;
 }
 
 ion-input {
-  --background: #fff; /* Culoare pentru input */
-  --color: #000; /* Culoare text pentru input */
+  --background: #fff;
+  --color: #000;
   --border-radius: 30px;
   --padding-start: 12px;
 }
 
 ion-button {
-  --background: #ebff5d; /* Culoare pentru buton */
-  --color: #000000; /* Culoare text buton */
+  --background: #ebff5d;
+  --color: #000000;
   --border-radius: 30px;
   --display: block;
   --margin: 0 auto;
 }
 
-  
+ion-datetime.custom-datetime {
+  box-shadow: rgba(var(#ebff5d), 0.3) 0px 10px 15px -3px;
+  --datetime-background: #ebff5d;
+  --datetime-text-color: #ffffff;
+  --datetime-border-radius: 2em;
+  --datetime-padding-horizontal: 0.75em;
+  width: auto;
+  max-width: 100%;
+  text-align: center;
+  border-radius: 16px;
+}
+
+ion-datetime.custom-datetime ::ng-deep .calendar-day-active {
+  color: #ebff5d;
+}
+
+ion-datetime.custom-datetime ::ng-deep .calendar-day,
+ion-datetime.custom-datetime ::ng-deep .calendar-week-day {
+  color: #ebff5d;
+}
+
+ion-datetime::part(calendar-day) {
+  color: #000000;
+}
+
+ion-datetime::part(calendar-day today) {
+  color: #ebff5d;
+}
+
+ion-datetime::part(calendar-day):focus {
+  background-color: rgb(154 209 98 / 0.2);
+  box-shadow: 0px 0px 0px 4px rgb(154 209 98 / 0.2);
+}
+
+ion-datetime.md::part(calendar-day active),
+ion-datetime.md::part(calendar-day active):focus {
+  background-color: #ebff5d;
+  border-color: #ebff5d;
+  color: #f5f5f5;
+}
+
+ion-datetime.md::part(calendar-day today) {
+  border-color: #ebff5d;
+}
+
+ion-datetime.ios::part(calendar-day active),
+ion-datetime.ios::part(calendar-day active):focus {
+  background-color: rgb(154 209 98 / 0.2);
+  color: #ebff5d;
+  border: 1px solid #ebff5d;
+}
+
+ion-input {
+  --background-color: #fff;
+  --text-color: #000;
+  --border-radius: 2em;
+  --padding-horizontal: 0.75em;
+  display: block;
+  width: 100%;
+  margin-bottom: 0.75em;
+}
+
+.page-title {
+  color: white;
+  text-align: center;
+  flex: 1;
+  font-family: 'ZingTrue';
+  font-size: 2.2em;
+  margin-bottom: 10%;
+  margin-top: 10%;
+}

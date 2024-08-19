@@ -1,57 +1,36 @@
-.circle{
-    background-color: #2B293E;
-    
+.circle {
+  background-color: #2B293E;
 }
 
 .circle::part(image) {
-    width: 50%; 
- }
+  width: 50%;
+}
+
+a {
+  color: #ebff5d;
+  opacity: 0.7;
+}
 
 
- 
- ion-button {
-    --background: #ebff5d; /* Culoare pentru buton */
-    --color: #000000; /* Culoare text buton */
-    --border-radius: 30px;
-    --display: block;
-    --margin: 0 auto;
-  }
+ion-label {
+  --color: #000000;
+}
 
-  a{
-    color: #ebff5d;
-    opacity: 0.7;
-  }
+ion-input {
+  --background: #fff;
+  --color: #000;
+  --border-radius: 30px;
+  --padding-start: 12px;
+}
 
+.center-button {
+  display: block;
+  margin: 0 auto;
+  padding: 2%;
+}
 
-
-  ion-label {
-    --color: #000000; /* Culoare pentru text */
-  }
-  
-  ion-input {
-    --background: #fff; /* Culoare pentru input */
-    --color: #000; /* Culoare text pentru input */
-    --border-radius: 30px;
-    --padding-start: 12px;
-  }
-  
-  ion-button {
-    --background: #ebff5d; /* Culoare pentru buton */
-    --color: #000000; /* Culoare text buton */
-    --border-radius: 30px;
-    --display: block;
-    --margin: 0 auto;
-  }
-
-  .center-button {
-    display: block;
-    margin: 0 auto;
-    padding: 2%;
-  }
-
-  ion-note{
-    font-family: 'Poppins-ExtraLight';font-size: 13px;
-    padding: 20px;
-  
-  }
-
+ion-note {
+  font-family: 'Poppins-ExtraLight';
+  font-size: 13px;
+  padding: 20px;
+}

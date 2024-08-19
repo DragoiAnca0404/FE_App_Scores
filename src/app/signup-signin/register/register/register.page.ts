@@ -20,7 +20,7 @@ export class RegisterPage implements OnInit {
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6),Validators.pattern(/^(?=.*\d)(?=.*[\W_])(?=.*[A-Z]).{6,}$/) // Pattern to ensure at least one number, one special character, and one uppercase letter
+      password: ['', [Validators.required, Validators.minLength(6), Validators.pattern(/^(?=.*\d)(?=.*[\W_])(?=.*[A-Z]).{6,}$/) // Pattern to ensure at least one number, one special character, and one uppercase letter
 
       ]]
     });
@@ -31,11 +31,11 @@ export class RegisterPage implements OnInit {
   onRegister() {
     if (this.registerForm.valid) {
       const user = this.registerForm.value;
-      const role = 'User'; // Înlocuiți cu rolul dorit
+      const role = 'User'; 
       this.authService.registerUser(user, role).subscribe(
         response => {
           console.log('User registered successfully', response);
-          this.router.navigate(['/success-msg-register']); // Navigați la pagina de login sau unde doriți
+          this.router.navigate(['/success-msg-register']);
         },
         error => {
           console.error('Error registering user', error);
