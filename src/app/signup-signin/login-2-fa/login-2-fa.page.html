@@ -1,34 +1,25 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login 2FA</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="background-image">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-align-items-center ion-margin-top">
+      <ion-col size="12" size-md="6" size-lg="4">
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <ion-img alt="Silhouette of mountains" src="assets/success-msg.png" />
+          
+          <div formArrayName="code" class="code-input">
+            <ion-item *ngFor="let control of code.controls; let i = index">
+              <ion-input [formControlName]="i" type="text" maxlength="1" inputmode="numeric"></ion-input>
+            </ion-item>
+          </div>
+          
+          <ion-button expand="block" type="submit" [disabled]="loginForm.invalid">Login</ion-button>
 
-<ion-content>
-  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-    <ion-item>
-      <ion-label position="floating">Username</ion-label>
-      <ion-input formControlName="username" type="text"></ion-input>
-    </ion-item>
-    <ion-item *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid">
-      <p *ngIf="loginForm.get('username')?.hasError('required')">Username is required.</p>
-    </ion-item>
-
-    <div formArrayName="code" class="code-input">
-      <ion-item *ngFor="let control of code.controls; let i = index">
-        <ion-input [formControlName]="i" type="text" maxlength="1" inputmode="numeric"></ion-input>
-      </ion-item>
-    </div>
-    <ion-item *ngIf="loginForm.get('code')?.invalid">
-      <p>Code is required and must be 6 digits.</p>
-    </ion-item>
-
-    <ion-button type="submit" [disabled]="loginForm.invalid">Login</ion-button>
-
-    <ion-item *ngIf="errorMessage">
-      <ion-note color="danger">
-        {{ errorMessage }}
-      </ion-note>
-    </ion-item>
-  </form>
+          <ion-item *ngIf="errorMessage">
+            <ion-note color="danger">
+              {{ errorMessage }}
+            </ion-note>
+          </ion-item>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

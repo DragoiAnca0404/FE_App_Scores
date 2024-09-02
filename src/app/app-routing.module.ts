@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { authGuard } from './signup-signin/guards/auth.guard';
 import { userIsLoginGuard } from './signup-signin/guards/user-is-login.guard';
-import { authSuccessGuard } from './signup-signin/guards/auth-success.guard';
+import { authGuard } from './signup-signin/guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'vizualizare-activitati',
-    loadChildren: () => import('./onboard/user/vizualizare-activitati/vizualizare-activitati.module').then(m => m.VizualizareActivitatiPageModule)
+    path: 'register',
+    loadChildren: () => import('./signup-signin/register/register/register.module').then(m => m.RegisterPageModule),
+    canActivate: [userIsLoginGuard]
   },
   {
     path: '',
-    redirectTo: 'vizualizare-activitati',
+    redirectTo: 'register',
     pathMatch: 'full'
   },
   {
@@ -21,16 +21,19 @@ const routes: Routes = [
   },
   {
     path: 'login-page',
-    loadChildren: () => import('./signup-signin/login/login-page/login-page.module').then(m => m.LoginPagePageModule)
+    loadChildren: () => import('./signup-signin/login/login-page/login-page.module').then(m => m.LoginPagePageModule),
+    canActivate: [userIsLoginGuard]
+
   },
   {
     path: 'vizualizare-activitati',
-    loadChildren: () => import('./onboard/user/vizualizare-activitati/vizualizare-activitati.module').then(m => m.VizualizareActivitatiPageModule)
+    loadChildren: () => import('./onboard/user/vizualizare-activitati/vizualizare-activitati.module').then(m => m.VizualizareActivitatiPageModule),
+    canActivate: [authGuard]
   },
   {
     path: 'login-2-fa',
     loadChildren: () => import('./signup-signin/login-2-fa/login-2-fa.module').then(m => m.Login2FAPageModule),
-    //canActivate: [userIsLoginGuard]
+    canActivate: [userIsLoginGuard]
   },
   {
     path: 'dummy',
@@ -52,7 +55,8 @@ const routes: Routes = [
   {
     path: 'adaugare-meci-nou',
     loadChildren: () => import('./onboard/admin/adaugare-meci-nou/adaugare-meci-nou.module').then(m => m.AdaugareMeciNouPageModule)
-  },  {
+  },
+  {
     path: 'success-msg-add-meci',
     loadChildren: () => import('./onboard/admin/success-msg-add-meci/success-msg-add-meci.module').then( m => m.SuccessMsgAddMeciPageModule)
   },

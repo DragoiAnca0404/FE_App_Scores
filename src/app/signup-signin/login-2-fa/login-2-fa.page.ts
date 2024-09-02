@@ -24,7 +24,6 @@ export class Login2FAPage implements OnInit {
     private jwtHelper: JwtHelperService
   ) {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
       code: this.fb.array(
         Array(6).fill('').map(() => this.fb.control('', Validators.required))
       )

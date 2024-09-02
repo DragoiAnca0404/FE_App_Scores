@@ -9,7 +9,11 @@ import { Observable } from 'rxjs';
 })
 export class DummyPage implements OnInit {
 
-  private apiUrl = 'https://localhost:44312/api/Admin/employees';
+  private apiUrl = 'https://192.168.1.134/api/Admin/employees';
+  // private baseUrlLogin = 'https://192.168.1.134/api/Authentication';
+
+
+ // private apiUrl = 'https://localhost:44312/api/Admin/employees';
   employees: string[] = []; // Array pentru a stoca datele angajaților
   errorMessage: string = ''; // Variabilă pentru a stoca mesajele de eroare
 

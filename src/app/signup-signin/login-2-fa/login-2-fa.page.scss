@@ -1,20 +1,60 @@
-.center-button {
-  display: block;
-  margin: 0 auto;
-  padding: 2%;
+ion-content {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #f1f3f5;
 }
 
-.title {
-  font-weight: bold;
-}
-
-ion-row.ion-justify-content-center.padding-space.md.hydrated {
-  padding: 100px;
-}
-
-.ion-txt-center {
-  font-family: 'Poppins-ExtraLight';
-  font-size: 13px;
+form {
+  width: 100%;
+  max-width: 400px;
   padding: 20px;
-  opacity: 0.5;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(15%);
+}
+
+ion-item {
+  --padding-start: 0;
+  margin-bottom: 8px; /* Reducem spațiul dintre elemente */
+}
+
+ion-input {
+  --padding-start: 12px;
+  font-size: 16px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  color: black;
+}
+
+.code-input {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px; /* Am redus spațiul dintre elemente */
+}
+
+ion-button {
+  margin-top: 12px;
+  width: 100%;
+  --background: #ebff5d;
+  --background-activated: #ebff5d;
+}
+
+ion-note {
+  margin-top: 12px;
+  text-align: center;
+  color: #dc3545;
+  font-size: 14px;
+}
+
+.background-image {
+  --background: url('/assets/background.png') no-repeat center center / cover;
+}
+
+ion-img{
+  margin: 10% 0% 10% 0%;
 }

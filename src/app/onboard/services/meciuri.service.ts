@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MeciuriService {
-  private apiUrl = 'https://localhost:44312/api/GestionareMeciuri';
-  private apiUrlAdd = 'https://localhost:44312/api/GestionareMeciuri/add';
+  private apiUrl = 'https://swagger.metasoft3d.ro/api/GestionareMeciuri';
+  private apiUrlAdd = 'https://swagger.metasoft3d.ro/api/GestionareMeciuri/add';
 
   meciDenumire: string = '';
 

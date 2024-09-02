@@ -37,7 +37,7 @@ export class AdaugareMeciNouPage implements OnInit {
       ], Validators.required)
     });
 
-    this.http.get<any[]>('https://localhost:44312/api/GestionareMeciuri/VizualizareActivitati').subscribe(
+    this.http.get<any[]>('https://swagger.metasoft3d.ro/api/GestionareMeciuri/VizualizareActivitati').subscribe(
       (data: any[]) => {
         this.activitati = data;
       },
@@ -47,7 +47,7 @@ export class AdaugareMeciNouPage implements OnInit {
       }
     );
 
-    this.http.get<any[]>('https://localhost:44312/api/GestionareMeciuri/VizualizareEchipe').subscribe(
+    this.http.get<any[]>('https://swagger.metasoft3d.ro/api/GestionareMeciuri/VizualizareEchipe').subscribe(
       (data: any[]) => {
         this.echipeList = data;
       },

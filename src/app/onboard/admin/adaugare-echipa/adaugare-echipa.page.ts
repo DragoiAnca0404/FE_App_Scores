@@ -27,7 +27,7 @@ export class AdaugareEchipaPage implements OnInit {
       users: ['', Validators.required] 
     });
 
-    this.http.get<any[]>('https://localhost:44312/api/GestionareMeciuri/VizualizareUtilizatori').subscribe(
+    this.http.get<any[]>('https://swagger.metasoft3d.ro/api/GestionareMeciuri/VizualizareUtilizatori').subscribe(
       (data: any[]) => {
         this.users = data;
       },

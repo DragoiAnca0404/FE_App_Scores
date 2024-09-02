@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
-import * as jwt from 'jsonwebtoken';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { Http } from '@capacitor-community/http';
 
 
 @Injectable({
@@ -11,10 +9,8 @@ import { Http } from '@capacitor-community/http';
 })
 export class RegisterServiceService {
 
-  private apiUrl = 'https://localhost:44312/api'; // URL-ul API-ului
-  // private baseUrlLogin = 'https://192.168.1.134/api/Authentication';
-  //http://192.168.1.144/api/Authentication/login
-  private baseUrlLogin = 'https://localhost:44312/api/Authentication';
+
+  private apiUrl = 'https://swagger.metasoft3d.ro/api';
   private username: any;
   private jwtHelper: JwtHelperService = new JwtHelperService();
 
@@ -54,42 +50,24 @@ export class RegisterServiceService {
     return this.http.post(url, user, { headers: headers, withCredentials: true });
   }
 
-  /*login2(credentials: { username: string, password: string }): Promise<any> {
-    if (!credentials || !credentials.username || !credentials.password) {
-        console.error('Invalid credentials object:', credentials);
-        return Promise.reject('Invalid credentials object');
-    }
-
-    const url = `${this.baseUrlLogin}/login`;
-    const options = {
-        url: url,
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        data: credentials,
-        withCredentials: true
-    };
-
-    console.log('HTTP request options:', options);
-
-    return Http.request(options).then(response => {
-        console.log('HTTP request successful:', response);
-        return response;
-    }).catch(error => {
-        console.error('HTTP request failed:', error);
-        throw error;
-    });
-}
-*/
 
   login2(credentials: { username: string, password: string }): Observable<any> {
-    const url = `${this.baseUrlLogin}/login`;
+    const url = `${this.apiUrl}/Authentication/login`;
     return this.http.post(url, credentials, { withCredentials: true });
   }
 
 
   login2FA(credentials: { username: string, code: string }): Observable<any> {
-    const url = `${this.baseUrlLogin}/login-2FA`;
+    const url = `${this.apiUrl}/Authentication/login-2FA`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post<any>(url, credentials, { headers: headers, withCredentials: true });
+  }
+
+  // Metoda pentru logout
+  logout(): void {
+    this.clearToken();  // Elimină token-ul din localStorage
+    localStorage.removeItem('role');  // Elimină și rolul utilizatorului din localStorage
+    this.username = null;  // Resetare nume utilizator
+    this.UserRole.next(null);  // Actualizează BehaviorSubject pentru a reflecta starea deconectată
   }
 }

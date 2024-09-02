@@ -56,4 +56,10 @@ export class VizualizareActivitatiPage implements OnInit {
   onClickAddEchipa() {
     this.router.navigate(['/adaugare-echipa']);
   }
+
+   // Noua metodă pentru log out
+   onClickLogOut() {
+    this.authService.logout(); // Deconectează utilizatorul
+    this.router.navigate(['/login-page']); // Redirecționează la pagina de login
+  }
 }
