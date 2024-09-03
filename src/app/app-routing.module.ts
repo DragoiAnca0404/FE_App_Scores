@@ -67,7 +67,15 @@ const routes: Routes = [
   {
     path: 'success-msg-add-echipa',
     loadChildren: () => import('./onboard/admin/success-msg-add-echipa/success-msg-add-echipa.module').then( m => m.SuccessMsgAddEchipaPageModule)
+  },  {
+    path: 'forgot-password',
+    loadChildren: () => import('./signup-signin/forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+  },
+  {
+    path: 'reset-password',
+    loadChildren: () => import('./signup-signin/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
   }
+
 
 
 

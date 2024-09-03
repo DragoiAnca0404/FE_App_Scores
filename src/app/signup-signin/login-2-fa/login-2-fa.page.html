@@ -4,13 +4,21 @@
       <ion-col size="12" size-md="6" size-lg="4">
         <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
           <ion-img alt="Silhouette of mountains" src="assets/success-msg.png" />
-          
+
           <div formArrayName="code" class="code-input">
             <ion-item *ngFor="let control of code.controls; let i = index">
-              <ion-input [formControlName]="i" type="text" maxlength="1" inputmode="numeric"></ion-input>
+              <ion-input
+                #codeInput
+                [formControlName]="i"
+                type="text"
+                maxlength="1"
+                inputmode="numeric"
+                (keydown)="handleKeydown($event, i)"
+                (ionInput)="handleInput($event, i)">
+              </ion-input>
             </ion-item>
           </div>
-          
+
           <ion-button expand="block" type="submit" [disabled]="loginForm.invalid">Login</ion-button>
 
           <ion-item *ngIf="errorMessage">

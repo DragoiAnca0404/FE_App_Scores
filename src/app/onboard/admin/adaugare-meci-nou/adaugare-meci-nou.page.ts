@@ -81,26 +81,40 @@ export class AdaugareMeciNouPage implements OnInit {
 
   validateEchipe() {
     const echipeControls = this.echipe().controls;
-    const selectedEchipe = echipeControls.map(control => control.get('denumireEchipa')!.value);
+    const selectedEchipe = echipeControls.map(control => control.get('denumireEchipa')?.value);
     this.echipeIdentice = false;
-
-    echipeControls.forEach(control => {
+  
+    echipeControls.forEach((control, index) => {
       const echipaControl = control.get('denumireEchipa');
+  
       if (echipaControl) {
-        const duplicates = selectedEchipe.filter(value => value === echipaControl.value);
-        if (duplicates.length > 1) {
+        const isDuplicate = selectedEchipe.filter((value, idx) => value === echipaControl.value && idx !== index).length > 0;
+        
+        if (isDuplicate) {
           echipaControl.setErrors({ duplicate: true });
           this.echipeIdentice = true;
         } else {
-          echipaControl.setErrors(null);
+          if (!echipaControl.value) {
+            echipaControl.setErrors({ required: true });
+          } else {
+            echipaControl.setErrors(null);
+          }
         }
+  
+        echipaControl.updateValueAndValidity();
       }
     });
   }
+  
+  
+  
 
   onSubmit() {
     this.submitted = true;
     this.validateEchipe(); // Validează echipele înainte de trimitere
+
+    this.meciForm.markAllAsTouched();
+
 
     if (this.meciForm.valid && !this.echipeIdentice) {
       const formValue = this.meciForm.value;

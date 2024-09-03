@@ -29,25 +29,6 @@ export class LoginPagePage implements OnInit {
 
 
 
-  /*onLogin() {
-     if (this.loginForm.valid) {
-       const loginData = this.loginForm.value;
-       this.authService.login2(loginData).then(
-         response => {
-           this.authService.setUsername(loginData.username); // Salvăm numele de utilizator
-           console.log('Login successful', response);
-           this.navCtrl.navigateForward('/login-2-fa');
-         },
-         error => {
-           console.error('Login failed', error);
-           this.errorMessage = 'Credențiale invalide. Vă rugăm să încercați din nou.';
-         }
-       );
-     }
-   }
-   }*/
-
-
   onLogin() {
     if (this.loginForm.valid) {
       const loginData = this.loginForm.value;

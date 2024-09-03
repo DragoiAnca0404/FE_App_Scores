@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MeciuriService } from '../../services/meciuri.service';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -19,11 +19,13 @@ export class AdaugareEchipaPage implements OnInit {
     private meciuriService: MeciuriService,
     private router: Router,
     private http: HttpClient
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.echipaForm = this.fb.group({
-      denumireEchipa: ['', Validators.required],
+      denumireEchipa: ['', [Validators.required, this.noWhitespaceValidator, 
+        Validators.maxLength(50),
+        Validators.pattern('^[a-zA-Z ]*$')]],
       users: ['', Validators.required] 
     });
 
@@ -38,13 +40,23 @@ export class AdaugareEchipaPage implements OnInit {
     );
   }
 
+  public noWhitespaceValidator(control: FormControl) {
+    return (control.value || '').trim().length ? null : { 'whitespace': true };       
+  }
+
   onSubmit() {
+    if (this.echipaForm.invalid) {
+      return;
+    }
+
     const formValue = this.echipaForm.value;
 
-    // Pregătim obiectul conform cerințelor API-ului
+    const denumireEchipaTrimmed = formValue.denumireEchipa.trim();
+
+
     const echipaPayload = {
-      denumireEchipa: formValue.denumireEchipa,
-      usernames: formValue.users // Array de utilizatori selectați
+      denumireEchipa: denumireEchipaTrimmed,
+      usernames: formValue.users
     };
 
     this.meciuriService.addEchipa(echipaPayload).subscribe(

@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { RegisterServiceService } from '../services/register-service.service';
-import { Router } from '@angular/router';
+import { Component, OnInit, ViewChildren, QueryList, HostListener } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
-import { NavController } from '@ionic/angular';
+import { NavController, IonInput } from '@ionic/angular';
+import { RegisterServiceService } from '../services/register-service.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
@@ -12,10 +11,11 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class Login2FAPage implements OnInit {
 
+  @ViewChildren('codeInput') codeInputs!: QueryList<IonInput>;
+
   loginForm: FormGroup;
   errorMessage: string = '';
   private role: string = '';
-
 
   constructor(
     private fb: FormBuilder,
@@ -34,6 +34,85 @@ export class Login2FAPage implements OnInit {
 
   get code(): FormArray {
     return this.loginForm.get('code') as FormArray;
+  }
+
+  moveFocus(index: number, direction: 'next' | 'prev') {
+    const inputsArray = this.codeInputs.toArray();
+    if (direction === 'next' && index < inputsArray.length - 1) {
+      inputsArray[index + 1].setFocus();
+    } else if (direction === 'prev' && index > 0) {
+      inputsArray[index - 1].setFocus();
+    }
+  }
+
+  handleInput(event: any, index: number) {
+    const input = event.target.value;
+
+    if (input.length === 1) {
+      this.code.at(index).setValue(input);
+      this.moveFocus(index, 'next');
+    } else if (input.length > 1) {
+      this.code.at(index).setValue(input.charAt(0));
+      if (index < this.code.length - 1) {
+        this.code.at(index + 1).setValue(input.slice(1));
+        this.moveFocus(index, 'next');
+      }
+    }
+  }
+
+  handleKeydown(event: KeyboardEvent, index: number) {
+    if (event.key === 'ArrowLeft' && index > 0) {
+      event.preventDefault();
+      this.moveFocus(index, 'prev');
+    } else if (event.key === 'ArrowRight' && index < this.code.length - 1) {
+      event.preventDefault();
+      this.moveFocus(index, 'next');
+    } else if (event.key === 'Backspace') {
+      this.handleBackspace(index, event);
+    }
+  }
+
+  handleBackspace(index: number, event: KeyboardEvent) {
+    const currentInput = this.code.at(index).value;
+
+    if (event.key === 'Backspace') {
+      event.preventDefault();
+
+      if (currentInput === '' && index > 0) {
+        this.code.at(index - 1).setValue('');
+        this.moveFocus(index, 'prev');
+      } else {
+        this.code.at(index).setValue('');
+      }
+    }
+  }
+
+  @HostListener('window:paste', ['$event'])
+  onPaste(event: ClipboardEvent) {
+    const pastedData = (event.clipboardData || (window as any).clipboardData).getData('text');
+    this.fillInputs(pastedData);
+  }
+
+  private fillInputs(code: string) {
+    const inputsArray = this.codeInputs.toArray();
+    let currentIndex = 0;
+
+    // Iterate over each character in the pasted code
+    for (const char of code) {
+      // Find the next empty field
+      while (currentIndex < this.code.length && this.code.at(currentIndex).value) {
+        currentIndex++;
+      }
+
+      // If there's space to put the character, do it
+      if (currentIndex < this.code.length) {
+        this.code.at(currentIndex).setValue(char);
+        currentIndex++;
+      }
+    }
+
+    // Move focus to the last filled input
+    this.codeInputs.toArray()[Math.min(currentIndex, inputsArray.length) - 1]?.setFocus();
   }
 
   onLogin() {
@@ -62,10 +141,6 @@ export class Login2FAPage implements OnInit {
 
   private decodeToken(token: string): void {
     const decodedToken = this.jwtHelper.decodeToken(token);
-    this.role = decodedToken.role;  // Presupunem că rolul este în token
+    this.role = decodedToken.role;
   }
-
-
 }
-
-

@@ -66,9 +66,11 @@
                 </ion-select-option>
               </ion-select>
             </ion-item>
-            <div *ngIf="submitted && echipa.get('denumireEchipa')?.invalid" class="error-message">
+            <div *ngIf="submitted && echipa.get('denumireEchipa')?.invalid && echipa.get('denumireEchipa')?.errors?.['required']" class="error-message">
               Denumirea echipei este necesară.
             </div>
+            
+            
             
         <div *ngIf="echipeIdentice" class="error-message">
           Echipele nu pot fi identice.
