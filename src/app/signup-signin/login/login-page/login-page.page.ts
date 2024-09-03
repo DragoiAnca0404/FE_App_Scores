@@ -31,10 +31,14 @@ export class LoginPagePage implements OnInit {
 
   onLogin() {
     if (this.loginForm.valid) {
-      const loginData = this.loginForm.value;
+      const loginData = {
+        usernameOrEmail: this.loginForm.value.username,
+        password: this.loginForm.value.password
+      };
+  
       this.authService.login2(loginData).subscribe(
         response => {
-          this.authService.setUsername(loginData.username); // Salvăm numele de utilizator
+          this.authService.setUsername(this.loginForm.value.username); // Salvăm numele de utilizator
           console.log('Login successful', response);
           this.navCtrl.navigateForward('/login-2-fa');
         },
@@ -45,4 +49,4 @@ export class LoginPagePage implements OnInit {
       );
     }
   }
-}
+}  

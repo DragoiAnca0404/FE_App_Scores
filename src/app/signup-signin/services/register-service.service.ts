@@ -51,7 +51,7 @@ export class RegisterServiceService {
   }
 
 
-  login2(credentials: { username: string, password: string }): Observable<any> {
+  login2(credentials: { usernameOrEmail: string, password: string }): Observable<any> {
     const url = `${this.apiUrl}/Authentication/login`;
     return this.http.post(url, credentials, { withCredentials: true });
   }
