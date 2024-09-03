@@ -29,8 +29,8 @@ export class ResetPasswordPage implements OnInit {
   async submitReset() {
     if (this.password !== this.confirmPassword) {
       const alert = await this.alertController.create({
-        header: 'Error',
-        message: 'Passwords do not match.',
+        header: 'Eroare',
+        message: 'Parolele nu se potrivesc.',
         buttons: ['OK'],
       });
       await alert.present();
@@ -50,15 +50,15 @@ export class ResetPasswordPage implements OnInit {
       async () => {
         const alert = await this.alertController.create({
           header: 'Success',
-          message: 'Your password has been reset successfully.',
+          message: 'Parola ta a fost resetată cu succes.',
           buttons: ['OK'],
         });
         await alert.present();
       },
       async () => {
         const alert = await this.alertController.create({
-          header: 'Error',
-          message: 'Failed to reset password. Please try again.',
+          header: 'Eroare',
+          message: 'Nu s-a reușit resetarea parolei. Vă rugăm să încercați din nou.',
           buttons: ['OK'],
         });
         await alert.present();

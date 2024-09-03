@@ -15,8 +15,8 @@ export class ForgotPasswordPage {
   async resetPassword() {
     if (!this.email) {
       const alert = await this.alertController.create({
-        header: 'Error',
-        message: 'Please enter a valid email address.',
+        header: 'Eroare',
+        message: 'Vă rugăm să introduceți o adresă de email validă.',
         buttons: ['OK'],
       });
       await alert.present();
@@ -29,15 +29,15 @@ export class ForgotPasswordPage {
       async () => {
         const alert = await this.alertController.create({
           header: 'Success',
-          message: 'Password reset instructions have been sent to your email.',
+          message: 'Instrucțiunile pentru resetarea parolei au fost trimise pe emailul dumneavoastră.',
           buttons: ['OK'],
         });
         await alert.present();
       },
       async () => {
         const alert = await this.alertController.create({
-          header: 'Error',
-          message: 'Failed to send password reset email. Please try again later.',
+          header: 'Eroare',
+          message: 'Nu s-a reușit trimiterea emailului pentru resetarea parolei. Vă rugăm să încercați din nou mai târziu.',
           buttons: ['OK'],
         });
         await alert.present();
