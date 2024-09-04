@@ -32,7 +32,7 @@ export class VizualizareScoruriPage implements OnInit {
       });
 
       // Apel pentru determinarea câștigătorului
-      const url = `https://localhost:7271/api/GestionareMeciuri/Maxscoruri?DenumireMeci=${encodeURIComponent(this.denumireMeci)}&data=${encodeURIComponent(this.data)}`;
+      const url = `https://swagger.metasoft3d.ro/api/GestionareMeciuri/Maxscoruri?DenumireMeci=${encodeURIComponent(this.denumireMeci)}&data=${encodeURIComponent(this.data)}`;
       this.http.get(url, { responseType: 'text' }).subscribe((response: string) => {
         console.log('Răspuns API câștigător:', response);
         this.rezultatMeci = response;

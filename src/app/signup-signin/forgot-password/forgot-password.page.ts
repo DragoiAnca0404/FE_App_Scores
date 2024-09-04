@@ -23,7 +23,7 @@ export class ForgotPasswordPage {
       return;
     }
 
-    const url = `https://localhost:7271/api/Authentication/forgot-password?email=${encodeURIComponent(this.email)}`;
+    const url = `https://swagger.metasoft3d.ro/api/Authentication/forgot-password?email=${encodeURIComponent(this.email)}`;
 
     this.http.post(url, {}).subscribe(
       async () => {

@@ -37,7 +37,7 @@ export class ResetPasswordPage implements OnInit {
       return;
     }
 
-    const url = 'https://localhost:7271/api/Authentication/reset-password';
+    const url = 'https://swagger.metasoft3d.ro/api/Authentication/reset-password';
 
     const body = {
       password: this.password,
