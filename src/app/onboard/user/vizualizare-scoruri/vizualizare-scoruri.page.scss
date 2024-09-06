@@ -107,3 +107,29 @@
  img.sc-ion-label-md {
    width: 100%;
  }
+
+
+.info-icon {
+  color: black; /* Culoare neagră pentru iconiță */
+  margin-left: auto; /* Iconița să fie aliniată la dreapta */
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.background-image {
+  --background: url('/assets/background.png') no-repeat center center / cover;;
+}
+
+
+ion-card {
+  --background: #ffffff;
+  --color: #7f807c;
+}
+
+ion-card-title {
+  --color: #ebff5d;
+}
+
+ion-card-subtitle {
+  --color: #d1fff8;
+}

@@ -1,10 +1,10 @@
- .header-container {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 0 16px;
-   margin-top: 16px;
- }
+.meci-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+
 
  .fancy {
    position: relative;
@@ -27,19 +27,14 @@
 
 
  .meci-button {
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   text-align: left;
-   margin: 10px;
- }
+  flex: 1;
+  text-align: left;
+}
 
- .meci-button .meci-text {
-   flex: 1;
-   font-family: 'Zing';
-   font-size: 23px;
- }
-
+.meci-text {
+  font-family: 'Zing';
+  font-size: 23px;
+}
 
  .meci-button .meci-image {
    margin-left: 0px;
@@ -47,3 +42,12 @@
    max-height: 100px;
    border-radius: 50%;
  }
+
+ 
+.background-image {
+  --background: url('/assets/background.png') no-repeat center center / cover;;
+}
+
+.icon-button {
+  margin-left: 8px;
+}

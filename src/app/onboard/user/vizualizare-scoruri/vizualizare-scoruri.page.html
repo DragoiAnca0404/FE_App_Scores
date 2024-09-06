@@ -1,20 +1,33 @@
-<ion-img class="circle" src="assets/circle/Group.png"></ion-img>
-
 <ion-content>
+
   <div class="header-container">
-    <ion-title class="page-title fancy">Scoruri</ion-title>
+    <ion-title class="page-title fancy">Meciuri</ion-title>
   </div>
 
-  <!-- Afișează mesajul câștigătorului -->
-  <div *ngIf="rezultatMeci" class="winner-message">
-    <ion-text color="success">{{ rezultatMeci }}</ion-text>
-  </div>
+  <ion-img alt="Silhouette of mountains" src="assets/success-msg.png" />
+
+  <ion-content class="background-image">
+
+
+    <!-- Afișează mesajul câștigătorului -->
+
+    <ion-card>
+
+    
+      <ion-card-content>
+        <div *ngIf="rezultatMeci" class="ion-text-center">
+          <h3>Cine a castigat?</h3>
+          <div class="ion-text-center"><ion-icon name="medal-outline"></ion-icon></div>
+          <ion-text>{{ rezultatMeci }}</ion-text>
+        </div>      </ion-card-content>
+    </ion-card>
 
   <!-- Lista scorurilor echipelor -->
-  <ion-list *ngIf="scoruri && scoruri.length > 0">
+  <ion-list  *ngIf="scoruri && scoruri.length > 0">
     <ion-item *ngFor="let scor of scoruri; let i = index">
       <ion-label>
         <div class="score-card">
+          <ion-icon name="information-circle-outline" class="info-icon"></ion-icon>
           <div class="team">
             <h3>{{ scor.denumire_echipa }}</h3>
             <span class="score-number">{{ scor.scor }}</span>
@@ -26,4 +39,6 @@
       </ion-label>
     </ion-item>
   </ion-list>
+</ion-content>
+
 </ion-content>

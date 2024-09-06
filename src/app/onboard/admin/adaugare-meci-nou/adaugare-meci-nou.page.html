@@ -40,8 +40,18 @@
         </ion-item>
         
         <div *ngIf="submitted && meciForm.controls['denumireMeci'].invalid" class="error-message">
-          Denumirea meciului este necesară.
+          Vă rugăm să introduceți un nume de meci valid.
         </div>
+
+        <div *ngIf="meciForm.get('denumireMeci')?.hasError('whitespace') && meciForm.get('denumireMeci')?.touched"  class="error-message">
+          Denumirea meciului nu trebuie să conțină spații.
+        </div>
+
+        
+        <div *ngIf="meciForm.get('denumireMeci')?.hasError('pattern')"  class="error-message">
+          Vă rugăm să introduceți doar caractere alfabetice.
+        </div>
+        
 
         <ion-item>
           <ion-label>Data Meci</ion-label>
@@ -69,8 +79,6 @@
             <div *ngIf="submitted && echipa.get('denumireEchipa')?.invalid && echipa.get('denumireEchipa')?.errors?.['required']" class="error-message">
               Denumirea echipei este necesară.
             </div>
-            
-            
             
         <div *ngIf="echipeIdentice" class="error-message">
           Echipele nu pot fi identice.

@@ -13,7 +13,8 @@ import { VizualizareActivitatiPage } from './vizualizare-activitati.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    VizualizareActivitatiPageRoutingModule
+    VizualizareActivitatiPageRoutingModule,
+    
   ],
   declarations: [VizualizareActivitatiPage]
 })

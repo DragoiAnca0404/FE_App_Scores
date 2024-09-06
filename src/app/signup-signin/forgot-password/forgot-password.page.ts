@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -10,7 +11,8 @@ import { AlertController } from '@ionic/angular';
 export class ForgotPasswordPage {
   email: string = '';
 
-  constructor(private http: HttpClient, private alertController: AlertController) {}
+  constructor(private http: HttpClient, private alertController: AlertController,   private router: Router
+  ) {}
 
   async resetPassword() {
     if (!this.email) {
@@ -33,6 +35,8 @@ export class ForgotPasswordPage {
           buttons: ['OK'],
         });
         await alert.present();
+        this.router.navigate(['/login-page']);
+
       },
       async () => {
         const alert = await this.alertController.create({

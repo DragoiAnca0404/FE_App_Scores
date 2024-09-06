@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators, AbstractControl, FormControl } from '@angular/forms';
 import { MeciuriService } from '../../services/meciuri.service';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -29,7 +29,8 @@ export class AdaugareMeciNouPage implements OnInit {
   ngOnInit() {
     this.meciForm = this.fb.group({
       denumireActivitate: ['', Validators.required],
-      denumireMeci: ['', Validators.required],
+      denumireMeci: ['', [Validators.required, this.noWhitespaceValidator,  Validators.maxLength(50),
+        Validators.pattern('^[a-zA-Z ]*$')]],
       dataMeci: ['', Validators.required],
       echipe: this.fb.array([
         this.createEchipa(),
@@ -60,10 +61,15 @@ export class AdaugareMeciNouPage implements OnInit {
 
   createEchipa(): FormGroup {
     return this.fb.group({
-      denumireEchipa: ['', Validators.required],
+      denumireEchipa: ['', [Validators.required, this.noWhitespaceValidator]], 
       scor: [0, Validators.required]
     });
   }
+
+  public noWhitespaceValidator(control: FormControl) {
+    return (control.value || '').trim().length ? null : { 'whitespace': true };       
+  }
+
 
   echipe(): FormArray {
     return this.meciForm.get('echipe') as FormArray;

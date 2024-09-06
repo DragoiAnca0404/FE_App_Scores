@@ -46,6 +46,8 @@ export class AdaugareEchipaPage implements OnInit {
 
   onSubmit() {
     if (this.echipaForm.invalid) {
+      // Atinge toate câmpurile pentru a afișa erorile dacă formularul este invalid
+      this.echipaForm.markAllAsTouched();
       return;
     }
 

@@ -176,3 +176,7 @@ ion-list.md.list-md.hydrated {
 .btn-3 {
   background: -webkit-gradient(linear, left top, left bottom, from(#a95), to(#fea));
 }
+
+.background-image {
+  --background: url('/assets/background.png') no-repeat center center / cover;;
+}

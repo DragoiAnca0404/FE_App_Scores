@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -17,7 +17,8 @@ export class ResetPasswordPage implements OnInit {
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -54,6 +55,8 @@ export class ResetPasswordPage implements OnInit {
           buttons: ['OK'],
         });
         await alert.present();
+        this.router.navigate(['/login-page']);
+
       },
       async () => {
         const alert = await this.alertController.create({

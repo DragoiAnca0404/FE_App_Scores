@@ -21,17 +21,13 @@
         <ion-item>
           <ion-input label="Introdu denumire echipa" label-placement="floating" formControlName="denumireEchipa"></ion-input>
         </ion-item>
-       <div *ngIf="echipaForm.get('denumireEchipa')?.hasError('whitespace') && echipaForm.get('denumireEchipa')?.touched">
+       <div *ngIf="echipaForm.get('denumireEchipa')?.hasError('whitespace') && echipaForm.get('denumireEchipa')?.touched"  class="error-message">
           Vă rugăm să introduceți un nume valid.
         </div>
 
-        <div *ngIf="echipaForm.get('denumireEchipa')?.hasError('pattern')">
-          Only alphabetic characters are allowed
+        <div *ngIf="echipaForm.get('denumireEchipa')?.hasError('pattern')"  class="error-message">
+          Vă rugăm să introduceți doar caractere alfabetice.
         </div>
-        
-
-        
-        
 
         <ion-item>
           <ion-select multiple="true" label-placement="floating" label="Selectează utilizatorii" formControlName="users">
@@ -40,6 +36,11 @@
             </ion-select-option>
           </ion-select>
         </ion-item>
+
+            <!-- Mesaj de eroare pentru utilizatori -->
+    <div *ngIf="echipaForm.get('users')?.hasError('required') && echipaForm.get('users')?.touched" class="error-message">
+      Vă rugăm să selectați utilizatori.
+    </div>
 
         <ion-button type="submit">
           Trimite
