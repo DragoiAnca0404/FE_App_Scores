@@ -1,4 +1,4 @@
-<ion-content >  
+<ion-content>
   <ion-grid>
     <ion-row>
       <ion-col size="12" class="ion-text-right">
@@ -20,7 +20,7 @@
                 <ion-item [button]="true" (click)="onClickLogOut()" [detail]="false">
                   <ion-icon name="log-out-outline" slot="start"></ion-icon>
                   Log out
-                </ion-item>                
+                </ion-item>
               </ion-list>
             </ion-content>
           </ng-template>
@@ -29,33 +29,14 @@
     </ion-row>
   </ion-grid>
 
-
-
-  <div class="header-container">
-    <ion-title class="page-title fancy ">Activități</ion-title>
-  </div>
-
-
-  <ion-img alt="Silhouette of mountains" src="assets/success-msg.png" />
-
-
   <div *ngIf="isLoading" class="loading-container">
     <img src="/assets/loading.gif" alt="Loading..." />
   </div>
 
 
-
-
-  <!--
-<ion-button shape="round" *ngIf="isAdmin">
-  <ion-icon slot="icon-only" name="add"></ion-icon>
-</ion-button>
--->
-
-
-
-
-
+  <ion-button shape="round" *ngIf="isAdmin">
+    <ion-icon slot="icon-only" name="add"></ion-icon>
+  </ion-button>
 
   <ion-segment [(ngModel)]="viewMode">
     <ion-segment-button value="list">
@@ -69,21 +50,19 @@
   <ion-content class="background-image">
 
 
-  <!-- Conținutul listei/gridului -->
-  <div [ngClass]="{'list-view': viewMode === 'list', 'grid-view': viewMode === 'grid'}">
-    <ion-button *ngFor="let activitate of activitati" class="meci-button " shape="round"
-      (click)="onMeciClick(activitate.titlu)">
-      <ion-text class="meci-text">{{ activitate.titlu }}</ion-text>
-      <ion-img [src]="activitate.imagineUrl" alt="Imagine meci" class="meci-image"></ion-img>
-    </ion-button>
-  </div>
-
-</ion-content>
+    <!-- Conținutul listei/gridului -->
+    <div [ngClass]="{'list-view': viewMode === 'list', 'grid-view': viewMode === 'grid'}">
+      <ion-button *ngFor="let activitate of activitati" class="meci-button " shape="round"
+        (click)="onMeciClick(activitate.titlu)">
+        <ion-text class="meci-text">{{ activitate.titlu }}</ion-text>
+        <ion-img [src]="activitate.imagineUrl" alt="Imagine meci" class="meci-image"></ion-img>
+      </ion-button>
+    </div>
+  </ion-content>
 </ion-content>
 
 
 <ion-toolbar>
-
   <ion-tabs class="custom-tabs">
     <ion-tab-bar slot="bottom">
       <ion-tab-button tab="home">

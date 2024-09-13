@@ -1,7 +1,4 @@
 <ion-content>
-  <div class="header-container">
-    <ion-title class="page-title fancy">Meciuri</ion-title>
-  </div>
 
   <ion-img alt="Silhouette of mountains" src="assets/success-msg.png"></ion-img>
 
@@ -14,16 +11,15 @@
           <ion-text>{{ meci.data | date: 'short' }}</ion-text>
         </ion-label>
       </ion-button>
-      
+
       <!-- Edit Button -->
-      <ion-button  color="primary" class="icon-button" >
+      <ion-button *ngIf="isAdmin" color="primary" class="icon-button">
         <ion-icon slot="icon-only" name="create-outline"></ion-icon>
       </ion-button>
-      
+
       <!-- Delete Button -->
-      <ion-button  color="danger" class="icon-button">
+      <ion-button *ngIf="isAdmin" color="danger" class="icon-button">
         <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
       </ion-button>
     </div>
   </ion-content>
-  
