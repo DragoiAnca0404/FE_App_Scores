@@ -10,7 +10,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class RegisterServiceService {
 
 
-  private apiUrl = 'https://swagger.metasoft3d.ro/api';
+  private apiUrl = 'https://localhost:7271/api';
   private username: any;
   private jwtHelper: JwtHelperService = new JwtHelperService();
 

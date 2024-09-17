@@ -1,29 +1,15 @@
 <ion-content>
+  <ion-card>
+    <ion-card-content>
+      <div *ngIf="rezultatMeci" class="ion-text-center">
+        <h3>Cine a castigat?</h3>
+        <div class="ion-text-center"><ion-icon name="medal-outline"></ion-icon></div>
+        <ion-text>{{ rezultatMeci }}</ion-text>
+      </div>
+    </ion-card-content>
+  </ion-card>
 
-  <div class="header-container">
-    <ion-title class="page-title fancy">Meciuri</ion-title>
-  </div>
-
-  <ion-img alt="Silhouette of mountains" src="assets/success-msg.png" />
-
-  <ion-content class="background-image">
-
-
-    <!-- Afișează mesajul câștigătorului -->
-
-    <ion-card>
-
-    
-      <ion-card-content>
-        <div *ngIf="rezultatMeci" class="ion-text-center">
-          <h3>Cine a castigat?</h3>
-          <div class="ion-text-center"><ion-icon name="medal-outline"></ion-icon></div>
-          <ion-text>{{ rezultatMeci }}</ion-text>
-        </div>      </ion-card-content>
-    </ion-card>
-
-  <!-- Lista scorurilor echipelor -->
-  <ion-list  *ngIf="scoruri && scoruri.length > 0">
+  <ion-list *ngIf="scoruri && scoruri.length > 0">
     <ion-item *ngFor="let scor of scoruri; let i = index">
       <ion-label>
         <div class="score-card">
@@ -39,6 +25,4 @@
       </ion-label>
     </ion-item>
   </ion-list>
-</ion-content>
-
 </ion-content>

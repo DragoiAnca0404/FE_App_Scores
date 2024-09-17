@@ -97,21 +97,17 @@ export class Login2FAPage implements OnInit {
     const inputsArray = this.codeInputs.toArray();
     let currentIndex = 0;
 
-    // Iterate over each character in the pasted code
     for (const char of code) {
-      // Find the next empty field
       while (currentIndex < this.code.length && this.code.at(currentIndex).value) {
         currentIndex++;
       }
 
-      // If there's space to put the character, do it
       if (currentIndex < this.code.length) {
         this.code.at(currentIndex).setValue(char);
         currentIndex++;
       }
     }
 
-    // Move focus to the last filled input
     this.codeInputs.toArray()[Math.min(currentIndex, inputsArray.length) - 1]?.setFocus();
   }
 

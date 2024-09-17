@@ -29,10 +29,26 @@ ion-input {
 
 ion-button {
   --background: #ebff5d;
-  --color: #000000;
+  --color: #000;
   --border-radius: 30px;
   --display: block;
   --margin: 0 auto;
+  --padding: 15px 30px;
+  --font-weight: bold;
+  --box-shadow: inset -3px -3px 8px rgba(255, 255, 255, 0.6), inset 3px 3px 8px rgba(0, 0, 0, 0.2), 6px 6px 12px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s ease;
+  border: none;
+}
+
+ion-button:hover {
+  --box-shadow: inset -1px -1px 4px rgba(255, 255, 255, 0.6), inset 1px 1px 4px rgba(0, 0, 0, 0.2), 4px 4px 10px rgba(0, 0, 0, 0.2);
+  --transform: scale(1.05);
+}
+
+ion-button:active {
+  --box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.2), inset -3px -3px 6px rgba(255, 255, 255, 0.6);
+  --transform: scale(0.98);
+  opacity: 0.95;
 }
 
 ion-datetime.custom-datetime {
@@ -57,7 +73,7 @@ ion-datetime.custom-datetime ::ng-deep .calendar-week-day {
 }
 
 ion-datetime::part(calendar-day) {
-  color: #f3f3f3;
+  color: #000000;
 }
 
 ion-datetime::part(calendar-day today) {

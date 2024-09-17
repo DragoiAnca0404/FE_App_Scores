@@ -20,7 +20,7 @@ form {
 
 ion-item {
   --padding-start: 0;
-  margin-bottom: 8px; /* Reducem spațiul dintre elemente */
+  margin-bottom: 8px;
 }
 
 ion-input {
@@ -34,7 +34,7 @@ ion-input {
 .code-input {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 12px; /* Am redus spațiul dintre elemente */
+  margin-bottom: 12px;
 }
 
 ion-button {
@@ -55,6 +55,6 @@ ion-note {
   --background: url('/assets/background.png') no-repeat center center / cover;
 }
 
-ion-img{
+ion-img {
   margin: 10% 0% 10% 0%;
 }

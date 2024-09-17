@@ -31,7 +31,7 @@ export class RegisterPage implements OnInit {
   onRegister() {
     if (this.registerForm.valid) {
       const user = this.registerForm.value;
-      const role = 'User'; 
+      const role = 'User';
       this.authService.registerUser(user, role).subscribe(
         response => {
           console.log('User registered successfully', response);

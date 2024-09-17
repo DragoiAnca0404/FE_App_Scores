@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterServiceService } from '../../services/register-service.service';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -27,18 +25,16 @@ export class LoginPagePage implements OnInit {
     });
   }
 
-
-
   onLogin() {
     if (this.loginForm.valid) {
       const loginData = {
         usernameOrEmail: this.loginForm.value.username,
         password: this.loginForm.value.password
       };
-  
+
       this.authService.login2(loginData).subscribe(
         response => {
-          this.authService.setUsername(this.loginForm.value.username); // Salvăm numele de utilizator
+          this.authService.setUsername(this.loginForm.value.username);
           console.log('Login successful', response);
           this.navCtrl.navigateForward('/login-2-fa');
         },

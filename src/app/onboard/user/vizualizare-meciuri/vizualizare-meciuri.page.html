@@ -1,25 +1,62 @@
 <ion-content>
+  <ion-segment [(ngModel)]="afisare">
+    <ion-segment-button value="publice">
+      Meciuri Publice
+    </ion-segment-button>
+    <ion-segment-button value="private">
+      Meciuri Private
+    </ion-segment-button>
+  </ion-segment>
 
-  <ion-img alt="Silhouette of mountains" src="assets/success-msg.png"></ion-img>
+  <div *ngIf="afisare === 'publice'">
+    <div *ngIf="meciuriPublice.length > 0; else noPublicGames">
+      <div *ngFor="let meci of meciuriPublice" class="meci-container">
+        <ion-button class="meci-button" (click)="selectMeci(meci)">
+          <ion-label>
+            <ion-text class="meci-text">{{ meci.denumire_meciuri }}</ion-text>
+            <div>&nbsp;</div>
+            <ion-text>{{ meci.data | date: 'short' }}</ion-text>
+          </ion-label>
+          <ion-icon name="lock-open-outline" class="tip-meci-icon" slot="end"></ion-icon>
+        </ion-button>
 
-  <ion-content class="background-image">
-    <div *ngFor="let meci of meciuri" class="meci-container">
-      <ion-button class="meci-button" (click)="selectMeci(meci)">
-        <ion-label>
-          <ion-text class="meci-text">{{ meci.denumire_meciuri }}</ion-text>
-          <div>&nbsp;</div>
-          <ion-text>{{ meci.data | date: 'short' }}</ion-text>
-        </ion-label>
-      </ion-button>
-
-      <!-- Edit Button -->
-      <ion-button *ngIf="isAdmin" color="primary" class="icon-button">
-        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
-      </ion-button>
-
-      <!-- Delete Button -->
-      <ion-button *ngIf="isAdmin" color="danger" class="icon-button">
-        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
-      </ion-button>
+        <ion-button *ngIf="isAdmin" color="primary" class="icon-button">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="isAdmin" color="danger" class="icon-button">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      </div>
     </div>
-  </ion-content>
+
+    <ng-template #noPublicGames>
+      <div class="no-games-message">Ups. Nu există meciuri disponibile.</div>
+    </ng-template>
+  </div>
+
+  <div *ngIf="afisare === 'private'">
+    <div *ngIf="meciuriPrivate.length > 0; else noPrivateGames">
+      <div *ngFor="let meci of meciuriPrivate" class="meci-container">
+        <ion-button class="meci-button" (click)="selectMeci(meci)">
+          <ion-label>
+            <ion-text class="meci-text">{{ meci.denumire_meciuri }}</ion-text>
+            <div>&nbsp;</div>
+            <ion-text>{{ meci.data | date: 'short' }}</ion-text>
+          </ion-label>
+          <ion-icon name="lock-closed-outline" class="tip-meci-icon" slot="end"></ion-icon>
+        </ion-button>
+
+        <ion-button *ngIf="isAdmin" color="primary" class="icon-button">
+          <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button *ngIf="isAdmin" color="danger" class="icon-button">
+          <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+
+    <ng-template #noPrivateGames>
+      <div class="no-games-message">Ups. Nu există meciuri disponibile.</div>
+    </ng-template>
+  </div>
+</ion-content>

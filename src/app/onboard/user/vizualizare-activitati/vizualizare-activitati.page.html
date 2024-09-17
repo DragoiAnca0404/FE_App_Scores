@@ -7,79 +7,59 @@
         </ion-button>
         <ion-popover trigger="popover-button" [dismissOnSelect]="true">
           <ng-template>
-            <ion-content>
-              <ion-list>
-                <ion-item [button]="true" (click)="onClickAddMeci()" [detail]="false">
-                  <ion-icon name="add-outline"></ion-icon> &nbsp;
-                  Adauga Meci
-                </ion-item>
-                <ion-item [button]="true" (click)="onClickAddEchipa()" [detail]="false">
-                  <ion-icon name="person-add-outline"></ion-icon> &nbsp;
-                  Creaza Echipa
-                </ion-item>
-                <ion-item [button]="true" (click)="onClickLogOut()" [detail]="false">
-                  <ion-icon name="log-out-outline" slot="start"></ion-icon>
-                  Log out
-                </ion-item>
-              </ion-list>
-            </ion-content>
+            <ion-list class="custom-popover-list">
+              <ion-item button (click)="onClickAddMeci()" detail="false" class="custom-popover-item">
+                <ion-icon name="add-outline" class="popover-icon"></ion-icon>
+                <span>Adaugă Meci</span>
+              </ion-item>
+              <ion-item button (click)="onClickAddEchipa()" detail="false" class="custom-popover-item">
+                <ion-icon name="person-add-outline" class="popover-icon"></ion-icon>
+                <span>Crează Echipa</span>
+              </ion-item>
+              <ion-item button (click)="onClickLogOut()" detail="false" class="custom-popover-item">
+                <ion-icon name="log-out-outline" slot="start" class="popover-icon"></ion-icon>
+                <span>Log out</span>
+              </ion-item>
+            </ion-list>
           </ng-template>
         </ion-popover>
       </ion-col>
     </ion-row>
   </ion-grid>
 
+
   <div *ngIf="isLoading" class="loading-container">
     <img src="/assets/loading.gif" alt="Loading..." />
   </div>
-
 
   <ion-button shape="round" *ngIf="isAdmin">
     <ion-icon slot="icon-only" name="add"></ion-icon>
   </ion-button>
 
-  <ion-segment [(ngModel)]="viewMode">
-    <ion-segment-button value="list">
-      Listă
-    </ion-segment-button>
-    <ion-segment-button value="grid">
-      Grilă
-    </ion-segment-button>
-  </ion-segment>
 
-  <ion-content class="background-image">
-
-
-    <!-- Conținutul listei/gridului -->
-    <div [ngClass]="{'list-view': viewMode === 'list', 'grid-view': viewMode === 'grid'}">
-      <ion-button *ngFor="let activitate of activitati" class="meci-button " shape="round"
-        (click)="onMeciClick(activitate.titlu)">
-        <ion-text class="meci-text">{{ activitate.titlu }}</ion-text>
-        <ion-img [src]="activitate.imagineUrl" alt="Imagine meci" class="meci-image"></ion-img>
-      </ion-button>
-    </div>
-  </ion-content>
+  <div class="list-view">
+    <ion-button *ngFor="let activitate of activitati" class="meci-button" shape="round"
+      (click)="onMeciClick(activitate.titlu)">
+      <ion-text class="meci-text">{{ activitate.titlu }}</ion-text>
+      <ion-img [src]="activitate.imagineUrl" alt="Imagine meci" class="meci-image"></ion-img>
+    </ion-button>
+  </div>
 </ion-content>
-
 
 <ion-toolbar>
   <ion-tabs class="custom-tabs">
     <ion-tab-bar slot="bottom">
       <ion-tab-button tab="home">
-        <ion-icon name="football-outline"></ion-icon>
-        Meciuri
+        <ion-icon name="football-outline"></ion-icon> Meciuri
       </ion-tab-button>
       <ion-tab-button tab="radio">
-        <ion-icon name="shirt-outline"></ion-icon>
-        Echipe
+        <ion-icon name="shirt-outline"></ion-icon> Echipe
       </ion-tab-button>
       <ion-tab-button tab="library">
-        <ion-icon name="medal-outline"></ion-icon>
-        Victorii
+        <ion-icon name="medal-outline"></ion-icon> Victorii
       </ion-tab-button>
       <ion-tab-button tab="search">
-        <ion-icon name="podium-outline"></ion-icon>
-        Statistici
+        <ion-icon name="podium-outline"></ion-icon> Statistici
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>

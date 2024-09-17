@@ -75,7 +75,11 @@ const routes: Routes = [
   {
     path: 'reset-password',
     loadChildren: () => import('./signup-signin/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
+  },  {
+    path: 'cod-acces-meci',
+    loadChildren: () => import('./onboard/user/cod-acces-meci/cod-acces-meci.module').then( m => m.CodAccesMeciPageModule)
   }
+
 
 
 

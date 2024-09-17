@@ -1,25 +1,15 @@
-.meci-button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-align: left;
-  margin: 10px;
-}
-
 .meci-button .meci-text {
   flex: 1;
   font-family: 'Zing';
   font-size: 23px;
-
 }
 
 ion-content {
   padding-bottom: 56px;
 }
 
-
 .meci-button .meci-image {
-  margin-left: 0px;
+  margin-left: 0;
   max-width: 100px;
   max-height: 100px;
   border-radius: 50%;
@@ -30,28 +20,11 @@ ion-content {
   flex-direction: column;
   align-items: center;
   padding: 30px;
-
-}
-
-.grid-view {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding-top: 30px;
 }
 
 ion-segment {
   margin: 10px 0;
 }
-
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 16px;
-  margin-top: 16px;
-}
-
 
 .add-button {
   margin-left: auto;
@@ -64,97 +37,19 @@ ion-segment {
   font-size: 23px;
 }
 
-.list-view .meci-button,
-.grid-view .meci-button {
+.list-view .meci-button {
   width: 100%;
   margin-bottom: 8px;
 }
 
-.grid-view {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.grid-view .meci-button {
-  width: calc(50% - 8px);
-  margin: 4px;
-}
-
 .segment-button-checked {
-  background: transparent ! important;
+  background: transparent !important;
   --indicator-color: #ebff5d;
   --background-hover: #ebff5d;
   --color-checked: #ebff5d;
   font-family: 'Zing';
   font-size: 23px;
 }
-
-
-
-.fancy {
-  position: relative;
-  white-space: nowrap;
-
-  &:after {
-    --deco-height: 0.3125em;
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: calc(var(--deco-height) * -0.625);
-    height: var(--deco-height);
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='%23EBFF5D' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
-    background-size: auto 100%;
-    background-repeat: round;
-    background-position: 0em;
-  }
-}
-
-.admin-button {
-  margin-right: 16px;
-}
-
-
-ion-tab-bar {
-  margin: 16px 20px;
-  --border: none;
-  border-radius: 12px;
-  --background: rgba(255, 255, 255, 0.582);
-  box-shadow:
-    0px 3px 6px 0px rgba(0, 0, 0, 0.04),
-    0px 1px 3px 0px rgba(0, 0, 0, 0.02);
-}
-
-
-.custom-tabs {
-  display: block !important;
-  position: static !important;
-  contain: none;
-}
-
-ion-toolbar {
-  background-color: #2B293E !important;
-  --background: #2B293E !important;
-}
-
-ion-tab-button {
-  --ripple-color: #ebff5d;
-}
-
-ion-list.md.list-md.hydrated {
-  background: transparent !important;
-  ;
-}
-
-
-.gif-background {
-  width: 300px;
-  height: 200px;
-  background-image: url('/assets/gif.gif');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 
 .loading-container {
   position: fixed;
@@ -174,9 +69,64 @@ ion-list.md.list-md.hydrated {
 }
 
 .btn-3 {
-  background: -webkit-gradient(linear, left top, left bottom, from(#a95), to(#fea));
+  background: linear-gradient(to bottom, #a95, #fea);
 }
 
 .background-image {
-  --background: url('/assets/background.png') no-repeat center center / cover;;
+  --background: url('/assets/background.png') repeat;
+  background-size: auto;
+  background-position: top left;
+}
+
+ion-tab-bar {
+  margin: 16px 20px;
+  --border: none;
+  border-radius: 12px;
+  --background: rgba(255, 255, 255, 0.582);
+  box-shadow:
+    0px 3px 6px 0px rgba(0, 0, 0, 0.04),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.02);
+}
+
+.custom-tabs {
+  display: block !important;
+  position: static !important;
+  contain: none;
+}
+
+ion-toolbar {
+  background-color: #2B293E !important;
+}
+
+ion-tab-button {
+  --ripple-color: #ebff5d;
+}
+
+ion-list.md.list-md.hydrated {
+  background: transparent !important;
+}
+
+.gif-background {
+  width: 300px;
+  height: 200px;
+  background-image: url('/assets/gif.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.custom-popover-list {
+  padding: 0;
+  margin: 0;
+}
+
+.custom-popover-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+}
+
+.popover-icon {
+  font-size: 20px;
+  margin-right: 10px;
 }
