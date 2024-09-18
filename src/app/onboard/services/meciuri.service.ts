@@ -7,14 +7,11 @@ import { MeciResponse } from 'src/app/models/meci-response';
   providedIn: 'root'
 })
 export class MeciuriService {
-  //private apiUrl = 'https://swagger.metasoft3d.ro/api/GestionareMeciuri';
 
-  private apiUrl ='https://localhost:7271/api/GestionareMeciuri';
-  private apiUrlAdd = 'https://swagger.metasoft3d.ro/api/GestionareMeciuri/add';
-
-    //https://localhost:7271/api/GestionareMeciuri/meciuri/private-access
-
-
+  private apiUrl = 'https://localhost:7271/api/GestionareMeciuri';
+ // private apiUrlAdd = 'https://swagger.metasoft3d.ro/api/GestionareMeciuri/add';
+ //https://localhost:7271/api/GestionareMeciuri/add
+ private apiUrlAdd = 'https://localhost:7271/api/GestionareMeciuri/add';
   meciDenumire: string = '';
 
   constructor(private http: HttpClient) { }
@@ -35,10 +32,9 @@ export class MeciuriService {
   getMeciuriByActivitate(denumireSport: string): Observable<any[]> {
     const url = `${this.apiUrl}/activitate`;
     const params = new HttpParams().set('DenumireActivitate', denumireSport);
-  
+
     return this.http.get<any[]>(url, { params });
   }
-
 
   getScoruri(denumireMeci: string, data: string): Observable<any[]> {
     const params = new HttpParams()
@@ -51,14 +47,11 @@ export class MeciuriService {
   getMeciScor(DenumireMeci: string, data: string): Observable<any> {
     return this.http.get(`https://localhost:7271/api/GestionareMeciuri/meciuri?DenumireMeci=${DenumireMeci}&data=${data}`);
   }
-  
-  
 
   addMeci(meci: any): Observable<any> {
     return this.http.post<any>(this.apiUrlAdd, meci);
   }
 
-  
   addEchipa(echipa: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/Create`, echipa, { responseType: 'text' as 'json' });
   }
@@ -76,6 +69,4 @@ export class MeciuriService {
     const body = { meciId, code };
     return this.http.post<MeciResponse>(url, body);
   }
-  //https://localhost:7271/api/GestionareMeciuri/meciuri/private-access
-  
 }

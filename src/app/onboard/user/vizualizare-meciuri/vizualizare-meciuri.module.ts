@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { VizualizareMeciuriPageRoutingModule } from './vizualizare-meciuri-routing.module';
+import { MessagesModule } from 'primeng/messages';
 
 import { VizualizareMeciuriPage } from './vizualizare-meciuri.page';
 
@@ -13,7 +14,8 @@ import { VizualizareMeciuriPage } from './vizualizare-meciuri.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    VizualizareMeciuriPageRoutingModule
+    VizualizareMeciuriPageRoutingModule,
+    MessagesModule
   ],
   declarations: [VizualizareMeciuriPage]
 })

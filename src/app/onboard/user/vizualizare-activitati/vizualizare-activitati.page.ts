@@ -33,11 +33,6 @@ export class VizualizareActivitatiPage implements OnInit {
     });
   }
 
-  onAddClick() {
-    // Logică pentru adăugarea unui nou meci
-  }
-
-
   onMeciClick(denumireSport: string) {
     this.isLoading = true;
 
@@ -47,8 +42,6 @@ export class VizualizareActivitatiPage implements OnInit {
     }, 5000);
   }
 
-
-
   onClickAddMeci() {
     this.router.navigate(['/adaugare-meci-nou']);
   }
@@ -57,8 +50,8 @@ export class VizualizareActivitatiPage implements OnInit {
     this.router.navigate(['/adaugare-echipa']);
   }
 
-   // Noua metodă pentru log out
-   onClickLogOut() {
+  // Noua metodă pentru log out
+  onClickLogOut() {
     this.authService.logout(); // Deconectează utilizatorul
     this.router.navigate(['/login-page']); // Redirecționează la pagina de login
   }

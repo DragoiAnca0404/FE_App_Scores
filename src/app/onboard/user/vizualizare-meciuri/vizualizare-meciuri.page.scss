@@ -1,14 +1,10 @@
+
+
 .meci-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin: 10px;
 }
 
 .meci-button {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
 }
 
@@ -17,16 +13,6 @@
   font-size: 23px;
 }
 
-.meci-button .meci-image {
-  margin-left: 0px;
-  max-width: 100px;
-  max-height: 100px;
-  border-radius: 50%;
-}
-
-.background-image {
-  --background: url('/assets/background.png') no-repeat center center / cover;
-}
 
 ion-segment {
   margin-top: 16px;
@@ -41,14 +27,10 @@ ion-segment-button.md::part(native) {
   color: #ffffff;
 }
 
-.icon-button {
-  margin-left: 8px;
-}
 
 .tip-meci-icon {
   font-size: 24px;
-  color: var(--ion-color-medium);
-  margin-left: 10px;
+ color: var(--ion-color-medium);
 }
 
 .segment-button-checked {
@@ -60,9 +42,45 @@ ion-segment-button.md::part(native) {
   font-size: 23px;
 }
 
-.no-games-message {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 18px;
-  color: #ff5d5d;
+
+ion-button {
+  .justify-content-space-arround {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+  }
+
+  &::part(native) {
+      font-weight: normal;
+      text-transform: none;   
+  }
 }
+
+
+.alert {
+  padding: 15px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  color: #333;
+  position: relative;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+
+.error {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+  margin:20px;
+}
+
+.sad-face{
+    font-size: 30px;
+    margin-right: 10px; 
+}
+
+
+

@@ -14,8 +14,8 @@ export class AdaugareMeciNouPage implements OnInit {
   activitati: any[] = [];
   echipeList: any[] = [];
   errorMessage: string | null = null;
-  submitted: boolean = false; // Indicator de trimitere
-  echipeIdentice: boolean = false; // Indicator pentru echipe identice
+  submitted: boolean = false; 
+  echipeIdentice: boolean = false; 
   meciDenumire: string = '';
 
   constructor(
@@ -23,14 +23,15 @@ export class AdaugareMeciNouPage implements OnInit {
     private meciuriService: MeciuriService,
     private router: Router,
     private http: HttpClient
-  ) {}
+  ) { }
 
 
   ngOnInit() {
     this.meciForm = this.fb.group({
       denumireActivitate: ['', Validators.required],
-      denumireMeci: ['', [Validators.required, this.noWhitespaceValidator,  Validators.maxLength(50),
-        Validators.pattern('^[a-zA-Z ]*$')]],
+      denumireMeci: ['', [Validators.required, this.noWhitespaceValidator, Validators.maxLength(50),
+      Validators.pattern('^[a-zA-Z ]*$')]],
+      tipMeci: ['', Validators.required],
       dataMeci: ['', Validators.required],
       echipe: this.fb.array([
         this.createEchipa(),
@@ -61,15 +62,14 @@ export class AdaugareMeciNouPage implements OnInit {
 
   createEchipa(): FormGroup {
     return this.fb.group({
-      denumireEchipa: ['', [Validators.required, this.noWhitespaceValidator]], 
+      denumireEchipa: ['', [Validators.required, this.noWhitespaceValidator]],
       scor: [0, Validators.required]
     });
   }
 
   public noWhitespaceValidator(control: FormControl) {
-    return (control.value || '').trim().length ? null : { 'whitespace': true };       
+    return (control.value || '').trim().length ? null : { 'whitespace': true };
   }
-
 
   echipe(): FormArray {
     return this.meciForm.get('echipe') as FormArray;
@@ -89,13 +89,13 @@ export class AdaugareMeciNouPage implements OnInit {
     const echipeControls = this.echipe().controls;
     const selectedEchipe = echipeControls.map(control => control.get('denumireEchipa')?.value);
     this.echipeIdentice = false;
-  
+
     echipeControls.forEach((control, index) => {
       const echipaControl = control.get('denumireEchipa');
-  
+
       if (echipaControl) {
         const isDuplicate = selectedEchipe.filter((value, idx) => value === echipaControl.value && idx !== index).length > 0;
-        
+
         if (isDuplicate) {
           echipaControl.setErrors({ duplicate: true });
           this.echipeIdentice = true;
@@ -106,21 +106,15 @@ export class AdaugareMeciNouPage implements OnInit {
             echipaControl.setErrors(null);
           }
         }
-  
         echipaControl.updateValueAndValidity();
       }
     });
   }
-  
-  
-  
 
   onSubmit() {
     this.submitted = true;
-    this.validateEchipe(); // Validează echipele înainte de trimitere
-
+    this.validateEchipe();
     this.meciForm.markAllAsTouched();
-
 
     if (this.meciForm.valid && !this.echipeIdentice) {
       const formValue = this.meciForm.value;

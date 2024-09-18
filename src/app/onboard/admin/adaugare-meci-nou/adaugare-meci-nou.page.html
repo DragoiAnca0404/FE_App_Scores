@@ -1,5 +1,4 @@
 <ion-content>
-
   <ion-card>
     <img alt="Img adauga meci" src="assets/add-meci.png" />
     <ion-card-header class="ion-text-center">
@@ -33,53 +32,72 @@
         </ion-item>
 
         <ion-item>
-          <ion-input label="Introdu denumire meci" label-placement="floating" formControlName="denumireMeci"></ion-input>
+          <ion-input label="Introdu denumire meci" label-placement="floating"
+            formControlName="denumireMeci"></ion-input>
         </ion-item>
-        
+
         <div *ngIf="submitted && meciForm.controls['denumireMeci'].invalid" class="error-message">
           Vă rugăm să introduceți un nume de meci valid.
         </div>
 
-        <div *ngIf="meciForm.get('denumireMeci')?.hasError('whitespace') && meciForm.get('denumireMeci')?.touched"  class="error-message">
+        <div *ngIf="meciForm.get('denumireMeci')?.hasError('whitespace') && meciForm.get('denumireMeci')?.touched"
+          class="error-message">
           Denumirea meciului nu trebuie să conțină spații.
         </div>
 
-        
-        <div *ngIf="meciForm.get('denumireMeci')?.hasError('pattern')"  class="error-message">
+        <div *ngIf="meciForm.get('denumireMeci')?.hasError('pattern')" class="error-message">
           Vă rugăm să introduceți doar caractere alfabetice.
         </div>
-        
 
         <ion-item>
           <ion-label>Data Meci</ion-label>
         </ion-item>
         <ion-item class="centered-calendar">
-          <ion-datetime locale="ro-RO" formControlName="dataMeci" class="custom-datetime margin-bottom-datetime"></ion-datetime>
+          <ion-datetime locale="ro-RO" formControlName="dataMeci"
+            class="custom-datetime margin-bottom-datetime"></ion-datetime>
         </ion-item>
         <div *ngIf="submitted && meciForm.controls['dataMeci'].invalid" class="error-message">
           Data meciului este necesară.
         </div>
 
 
+        <ion-item>
+          <ion-label>Tip Meci</ion-label>
+        </ion-item>
+        
+        <ion-item>
+          <ion-select label="Selectează tipul de meci" label-placement="floating" formControlName="tipMeci">
+            <ion-select-option value="Public">Public</ion-select-option>
+            <ion-select-option value="Privat">Privat</ion-select-option>
+          </ion-select>
+        </ion-item>
+        
+        <div *ngIf="submitted && meciForm.controls['tipMeci'].invalid" class="error-message">
+          Vă rugăm să selectați tipul meciului.
+        </div>
+        
         <div formArrayName="echipe" *ngFor="let echipa of echipe().controls; let i = index;">
           <div [formGroupName]="i">
             <ion-item>
               <ion-label>Echipa {{ i + 1 }}</ion-label>
             </ion-item>
             <ion-item>
-              <ion-select label="Selectează echipa" label-placement="floating" formControlName="denumireEchipa" (ionChange)="validateEchipe()">
+              <ion-select label="Selectează echipa" label-placement="floating" formControlName="denumireEchipa"
+                (ionChange)="validateEchipe()">
                 <ion-select-option *ngFor="let echipa of echipeList" [value]="echipa.denumireEchipa">
                   {{ echipa.denumireEchipa }}
                 </ion-select-option>
               </ion-select>
             </ion-item>
-            <div *ngIf="submitted && echipa.get('denumireEchipa')?.invalid && echipa.get('denumireEchipa')?.errors?.['required']" class="error-message">
+            <div
+              *ngIf="submitted && echipa.get('denumireEchipa')?.invalid && echipa.get('denumireEchipa')?.errors?.['required']"
+              class="error-message">
               Denumirea echipei este necesară.
             </div>
-            
-        <div *ngIf="echipeIdentice" class="error-message">
-          Echipele nu pot fi identice.
-        </div>
+
+            <div *ngIf="echipeIdentice" class="error-message">
+              Echipele nu pot fi identice.
+            </div>
 
             <ion-item>
               <ion-label>Scor</ion-label>
