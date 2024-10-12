@@ -34,9 +34,8 @@ User Features:
 
 • Token-based session management.
 
-3. Register Module (Admin & User Side)
+2. Register Module (Admin & User Side)
 
-   
 Admin Features:
 
 • Admin can register new users manually (if needed).
@@ -50,7 +49,7 @@ User Features:
 • Email verification.
 
 
-5. Reset Password Module (Admin & User Side)
+3. Reset Password Module (Admin & User Side)
 
    
 
@@ -60,7 +59,7 @@ User Features:
 
 • Update password via reset link or token.
 
-7. View Scores Module (Admin & User Side)
+4. View Scores Module (Admin & User Side)
 
    
 Admin Features:
@@ -74,14 +73,14 @@ User Features:
 • View scores of all matches
 
 
-9. View Activities Module (Admin & User Side)
+5. View Activities Module (Admin & User Side)
     
 Admin & User Features:
 
 • Track and view user activity (e.g., scores added, teams created).
 
 
-10. View Matches Module (Admin & User Side)
+6. View Matches Module (Admin & User Side)
     
 Admin Features:
 
@@ -92,7 +91,7 @@ User Features:
 • Users can view a list of upcoming, ongoing, and past matches.
 
 
-11. Add New Score Module (Admin Side)
+7. Add New Score Module (Admin Side)
 Admin Features:
 
 • Admin can input or update scores for ongoing or past matches.
@@ -100,7 +99,7 @@ Admin Features:
 • Associate scores with specific teams and match details.
 
 
-12. Create New Team Module (Admin Side)
+8. Create New Team Module (Admin Side)
     
 Admin Features:
 
