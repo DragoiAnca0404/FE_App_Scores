@@ -4,7 +4,11 @@ Title: Sports Score Management App
 
 Short description:
 
-•	For login, registration, password resets, and two-factor authentication with e-mail code delivery, I used Microsoft Identity. I used JWT and Bearer authentication on the front end.
+•	For login, registration, password resets, and two-factor authentication with e-mail code delivery, I used Microsoft Identity. 
+
+• After successful authentication, the token is returned and stored in local storage.
+
+• I used Bearer authentication on the front end regarding the authorization based on the role (Admin, User).
 
 •	The user chooses a sport and views the matches. Each match displays the scores.
 
