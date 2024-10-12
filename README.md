@@ -114,34 +114,36 @@ Admin Features:
 
 
 
-Match Structure
-A match is a fundamental entity within the Sports Score Management App and is characterized by the following unique identifiers and attributes:
+# Match Structure
 
-Unique Identifiers:
+A match is a fundamental entity within the **Sports Score Management App** and is characterized by the following unique identifiers and attributes:
 
-Match Date: The scheduled date and time when the match takes place.
-Match Name: A descriptive title for the match, which may include team names or event identifiers.
-Teams:
+## Unique Identifiers
+- **Match Date:** The scheduled date and time when the match takes place.
+- **Match Name:** A descriptive title for the match, which may include team names or event identifiers.
 
-Each match must include at least two teams. There is no upper limit on the number of teams that can participate in a match.
-Each team is assigned a unique identifier (e.g., team name or ID).
-Scores:
+## Teams
+- Each match must include at least **two teams**. There is no upper limit on the number of teams that can participate in a match.
+- Each team is assigned a **unique identifier** (e.g., team name or ID).
 
-Each team participating in the match will have an associated score.
-Scores are recorded and updated as the match progresses, allowing for real-time tracking of performance.
-Example Structure:
-Match Example:
+## Scores
+- Each team participating in the match will have an associated **score**.
+- Scores are recorded and updated as the match progresses, allowing for real-time tracking of performance.
 
-Match Date: October 12, 2024, 3:00 PM
-Match Name: "Team A vs. Team B - Championship Final"
-Teams:
+## Example Structure
 
-Team 1: Team A
-Score: 2
-Team 2: Team B
-Score: 3
-Summary
-In summary, each match in the Sports Score Management App is uniquely identified by its date and name and must include a minimum of two teams, each with an assigned score. This structure allows for comprehensive tracking and management of sports events, facilitating better engagement and data analysis for users.
+### Match Example:
+- **Match Date:** October 12, 2024, 3:00 PM
+- **Match Name:** "Team A vs. Team B - Championship Final"
+
+### Teams:
+- **Team 1:** Team A
+  - **Score:** 2
+- **Team 2:** Team B
+  - **Score:** 3
+
+## Summary
+In summary, each match in the **Sports Score Management App** is uniquely identified by its date and name and must include a minimum of two teams, each with an assigned score. This structure allows for comprehensive tracking and management of sports events, facilitating better engagement and data analysis for users.
 
 
 
