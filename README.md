@@ -2,6 +2,13 @@
 
 Title: Sports Score Management App
 
+Short description:
+•	For login, registration, password resets, and two-factor authentication with e-mail code delivery, I used Microsoft Identity. I used JWT and Bearer authentication on the front end.
+•	The user chooses a sport and views the matches. Each match displays the scores.
+•	There are add editing options only for the admin.
+•	Technologies: SSMS, Ionic (Angular), and ASP.NET Core API.
+
+
 <img src="https://github.com/user-attachments/assets/fa3549fd-76a8-4e23-a75a-3bc72b2a49ae" alt="WhatsApp Image 2024-10-12 at 16 20 38" width="400"/>
 
 <img src="https://github.com/user-attachments/assets/1fbf7fed-24e0-43c2-a8ed-e1e205ad1d98" alt="WhatsApp Image 2024-10-12 at 16 20 38 (1)" width="400"/>
