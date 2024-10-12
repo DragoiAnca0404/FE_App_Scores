@@ -1,118 +1,77 @@
 # FE_App_Scores
 
-Title: Sports Score Management App
+# Sports Score Management App
 
-Short description:
+## Short Description
 
-The Sports Score Management App is a platform to manage sports scores for teams, players, and matches. It offers two user roles—Admin and User—with distinct features. Admins can add new scores, create teams, manage users, and oversee match activities, while users can view scores, matches, and personal activities. The app ensures secure authentication and role-based authorization using Bearer tokens, with key modules like login, registration, password reset, score viewing, and team creation. It’s an efficient solution for managing live or historical sports data with real-time updates and ease of access.
+The **Sports Score Management App** is a platform to manage sports scores for teams, players, and matches. It offers two user roles—**Admin** and **User**—with distinct features. Admins can add new scores, create teams, manage users, and oversee match activities, while users can view scores, matches, and personal activities. The app ensures secure authentication and role-based authorization using Bearer tokens, with key modules like login, registration, password reset, score viewing, and team creation. It’s an efficient solution for managing live or historical sports data with real-time updates and ease of access.
 
+## Key Features
 
-•	For login, registration, password resets, and two-factor authentication with e-mail code delivery, I used Microsoft Identity. 
+- For login, registration, password resets, and two-factor authentication with email code delivery, I used **Microsoft Identity**.
+- After successful authentication, the token is returned and stored in local storage.
+- I used Bearer authentication on the front end regarding authorization based on the role (Admin, User).
+- Users can choose a sport and view matches, with each match displaying the scores.
+- Admins have editing options for managing data.
 
-• After successful authentication, the token is returned and stored in local storage.
+## Technologies
+- **SSMS** (SQL Server Management Studio)
+- **Ionic** (Angular)
+- **ASP.NET Core API**
 
-• I used Bearer authentication on the front end regarding the authorization based on the role (Admin, User).
+## Modules of Sports Score Management App
 
-•	The user chooses a sport and views the matches. Each match displays the scores.
+### 1. Login Module (Admin & User Side)
+- **Admin Features:**
+  - Admin login with role-based authentication.
+  - Secure token generation (Bearer/JWT).
+  
+- **User Features:**
+  - User login functionality with credentials.
+  - Token-based session management.
 
-•	There are add editing options only for the admin.
+### 2. Register Module (Admin & User Side)
+- **Admin Features:**
+  - Admin can register new users manually (if needed).
+  - View and manage user roles during registration.
 
-•	Technologies: SSMS, Ionic (Angular), and ASP.NET Core API.
+- **User Features:**
+  - User registration with basic information (e.g., username, email, password).
+  - Email verification.
 
+### 3. Reset Password Module (Admin & User Side)
+- **User Features:**
+  - Users can request password resets via email.
+  - Update password via reset link or token.
 
-Modules of Sports Score Management App
+### 4. View Scores Module (Admin & User Side)
+- **Admin Features:**
+  - View scores of all matches.
+  - Modify or update scores if necessary.
 
+- **User Features:**
+  - View scores of all matches.
 
-1. Login Module (Admin & User Side)
-   
-Admin Features:
+### 5. View Activities Module (Admin & User Side)
+- **Admin & User Features:**
+  - Track and view user activity (e.g., scores added, teams created).
 
-• Admin login with role-based authentication.
+### 6. View Matches Module (Admin & User Side)
+- **Admin Features:**
+  - Admin can edit or delete match details.
 
-• Secure token generation (Bearer/JWT).
+- **User Features:**
+  - Users can view a list of upcoming, ongoing, and past matches.
 
-User Features:
+### 7. Add New Score Module (Admin Side)
+- **Admin Features:**
+  - Admin can input or update scores for ongoing or past matches.
+  - Associate scores with specific teams and match details.
 
-• User login functionality with credentials.
-
-• Token-based session management.
-
-2. Register Module (Admin & User Side)
-
-Admin Features:
-
-• Admin can register new users manually (if needed).
-
-• View and manage user roles during registration.
-
-User Features:
-
-• User registration with basic information (e.g., username, email, password).
-
-• Email verification.
-
-
-3. Reset Password Module (Admin & User Side)
-
-   
-
-User Features:
-
-• Users can request password resets via email.
-
-• Update password via reset link or token.
-
-4. View Scores Module (Admin & User Side)
-
-   
-Admin Features:
-
-• View scores of all matches 
-
-• Modify or update scores if necessary.
-
-User Features:
-
-• View scores of all matches
-
-
-5. View Activities Module (Admin & User Side)
-    
-Admin & User Features:
-
-• Track and view user activity (e.g., scores added, teams created).
-
-
-6. View Matches Module (Admin & User Side)
-    
-Admin Features:
-
-• Admin can edit or delete match details.
-
-User Features:
-
-• Users can view a list of upcoming, ongoing, and past matches.
-
-
-7. Add New Score Module (Admin Side)
-Admin Features:
-
-• Admin can input or update scores for ongoing or past matches.
-
-• Associate scores with specific teams and match details.
-
-
-8. Create New Team Module (Admin Side)
-    
-Admin Features:
-
-• Admin can create a new team by entering team details (name, players, coach, etc.).
-
-• Manage team information and assign players or roles.
-
-
-
-
+### 8. Create New Team Module (Admin Side)
+- **Admin Features:**
+  - Admin can create a new team by entering team details (name, players, coach, etc.).
+  - Manage team information and assign players or roles.
 
 # Match Structure
 
