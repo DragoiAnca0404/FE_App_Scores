@@ -24,107 +24,89 @@ Modules of Sports Score Management App
    
 Admin Features:
 
-Admin login with role-based authentication.
+• Admin login with role-based authentication.
 
-Secure token generation (Bearer/JWT).
+• Secure token generation (Bearer/JWT).
 
 User Features:
 
-User login functionality with credentials.
+• User login functionality with credentials.
 
-Token-based session management.
+• Token-based session management.
 
 3. Register Module (Admin & User Side)
 
    
 Admin Features:
 
-Admin can register new users manually (if needed).
+• Admin can register new users manually (if needed).
 
-View and manage user roles during registration.
+• View and manage user roles during registration.
 
 User Features:
 
-User registration with basic information (e.g., username, email, password).
+• User registration with basic information (e.g., username, email, password).
 
-Email verification (optional).
+• Email verification.
 
-Role assignment (if users have different roles).
 
 5. Reset Password Module (Admin & User Side)
 
    
-Admin Features:
-
-Admin can reset users' passwords.
 
 User Features:
 
-Users can request password resets via email or security questions.
+• Users can request password resets via email.
 
-Update password via reset link or token.
+• Update password via reset link or token.
 
 7. View Scores Module (Admin & User Side)
 
    
 Admin Features:
 
-View scores of all matches and filter by teams, dates, etc.
+• View scores of all matches 
 
-Modify or update scores if necessary.
+• Modify or update scores if necessary.
 
 User Features:
 
-Users can view live or past match scores.
+• View scores of all matches
 
-Filter results based on teams, dates, and types of matches.
 
 9. View Activities Module (Admin & User Side)
     
-Admin Features:
+Admin & User Features:
 
-Track and view user activity (e.g., scores added, teams created).
+• Track and view user activity (e.g., scores added, teams created).
 
-Filter activities by user, date, or match.
 
-User Features:
-
-View a history of recent activities, including matches watched or scores viewed.
-
-Notifications of important updates.
-
-11. View Matches Module (Admin & User Side)
+10. View Matches Module (Admin & User Side)
     
 Admin Features:
 
-Overview of all upcoming, ongoing, and past matches.
-
-Admin can edit or delete match details.
+• Admin can edit or delete match details.
 
 User Features:
 
-Users can view a list of upcoming, ongoing, and past matches.
+• Users can view a list of upcoming, ongoing, and past matches.
 
-Match details such as date, time, venue, and participating teams.
 
-12. Add New Score Module (Admin Side)
+11. Add New Score Module (Admin Side)
 Admin Features:
 
-Admin can input or update scores for ongoing or past matches.
+• Admin can input or update scores for ongoing or past matches.
 
-Associate scores with specific teams and match details.
+• Associate scores with specific teams and match details.
 
-Option to automate live score updates via external API (if needed).
 
-14. Create New Team Module (Admin Side)
+12. Create New Team Module (Admin Side)
     
 Admin Features:
 
-Admin can create a new team by entering team details (name, players, coach, etc.).
+• Admin can create a new team by entering team details (name, players, coach, etc.).
 
-Manage team information and assign players or roles.
-
-Option to archive or delete teams.
+• Manage team information and assign players or roles.
 
 
 
