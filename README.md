@@ -17,6 +17,20 @@ Short description:
 •	Technologies: SSMS, Ionic (Angular), and ASP.NET Core API.
 
 
+Modules of Sports Score Management App
+
+
+1. Login Module - At Admin & User Side
+2. Register Module - At Admin & User Side
+3. Reset Password Module - At Admin & User Side
+4. View Scores Module - At Admin & User Side
+5. View Activities Module - At Admin & User Side
+6. View Matches Module - At Admin & User Side
+7. Add New Score Module - At Admin Side
+8. Create a new team Module - At Admin Side
+
+
+
 
 <img src="https://github.com/user-attachments/assets/fa3549fd-76a8-4e23-a75a-3bc72b2a49ae" alt="WhatsApp Image 2024-10-12 at 16 20 38" width="400"/>
 
