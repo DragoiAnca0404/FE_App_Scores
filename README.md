@@ -4,6 +4,9 @@ Title: Sports Score Management App
 
 Short description:
 
+The Sports Score Management App is a platform to manage sports scores for teams, players, and matches. It offers two user roles—Admin and User—with distinct features. Admins can add new scores, create teams, manage users, and oversee match activities, while users can view scores, matches, and personal activities. The app ensures secure authentication and role-based authorization using Bearer tokens, with key modules like login, registration, password reset, score viewing, and team creation. It’s an efficient solution for managing live or historical sports data with real-time updates and ease of access.
+
+
 •	For login, registration, password resets, and two-factor authentication with e-mail code delivery, I used Microsoft Identity. 
 
 • After successful authentication, the token is returned and stored in local storage.
