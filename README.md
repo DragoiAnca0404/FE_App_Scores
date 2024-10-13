@@ -123,10 +123,6 @@ In summary, each match in the **Sports Score Management App** is uniquely identi
 
 
 <img src="https://github.com/user-attachments/assets/e1c0a4a9-af06-43b6-b967-3c9e21381bf8" alt="WhatsApp Image 2024-10-12 at 16 03 20 (1)" width="350"/>
-![WhatsApp Image 2024-10-13 at 12 03 14 (1)](https://github.com/user-attachments/assets/6f23179a-b341-4770-9bc6-18ec420e9f17)
-![WhatsApp Image 2024-10-13 at 12 03 13](https://github.com/user-attachments/assets/b8c417f3-7371-4e8d-989c-f4f7e971f88a)
-![WhatsApp Image 2024-10-13 at 12 03 14](https://github.com/user-attachments/assets/53ba8e8c-cf23-49a8-b423-2f419a64b1c2)
-
 
 <br/>
 
@@ -141,6 +137,12 @@ In summary, each match in the **Sports Score Management App** is uniquely identi
 ![Screenshot 2024-10-12 163026](https://github.com/user-attachments/assets/379fe26a-86be-455b-86f7-518ce3572e4d)
 
 ![WhatsApp Image 2024-10-12 at 16 26 36 (1)](https://github.com/user-attachments/assets/7a897e4f-96da-40c8-9a91-a9ef5b0bb162)
+
+![WhatsApp Image 2024-10-13 at 12 03 13](https://github.com/user-attachments/assets/49cc3d1d-3639-421b-b4a7-dc5cbdf93c91)
+![WhatsApp Image 2024-10-13 at 12 03 14](https://github.com/user-attachments/assets/73f463a5-cd42-4647-9277-1495ece799c0)
+![WhatsApp Image 2024-10-13 at 12 03 14 (1)](https://github.com/user-attachments/assets/6ddd2c10-2c5d-42f1-9024-11955e4c089e)
+
+
 
 
 https://github.com/user-attachments/assets/6991ba64-a078-408b-84ba-a092fe2534c1
