@@ -123,6 +123,9 @@ In summary, each match in the **Sports Score Management App** is uniquely identi
 
 
 <img src="https://github.com/user-attachments/assets/e1c0a4a9-af06-43b6-b967-3c9e21381bf8" alt="WhatsApp Image 2024-10-12 at 16 03 20 (1)" width="350"/>
+![WhatsApp Image 2024-10-13 at 12 03 14 (1)](https://github.com/user-attachments/assets/6f23179a-b341-4770-9bc6-18ec420e9f17)
+![WhatsApp Image 2024-10-13 at 12 03 13](https://github.com/user-attachments/assets/b8c417f3-7371-4e8d-989c-f4f7e971f88a)
+![WhatsApp Image 2024-10-13 at 12 03 14](https://github.com/user-attachments/assets/53ba8e8c-cf23-49a8-b423-2f419a64b1c2)
 
 
 <br/>
